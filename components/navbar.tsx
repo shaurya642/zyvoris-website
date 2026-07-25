@@ -15,15 +15,11 @@ export function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative h-8 w-8">
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary to-accent opacity-80 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute inset-[2px] rounded-md bg-background flex items-center justify-center">
-                <span className="text-sm font-bold text-primary">Z</span>
-              </div>
-            </div>
-            <span className="text-xl font-bold tracking-tight text-foreground">
-              Zyvoris
-            </span>
+            <img
+  src="/zyvoris_z_logo_transparent_1_-removebg-preview.png"
+  alt="Zyvoris"
+  className="h-10 w-auto"
+/>
           </Link>
         </div>
 
