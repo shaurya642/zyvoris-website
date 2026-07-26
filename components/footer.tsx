@@ -1,6 +1,9 @@
 import Link from "next/link";
-import { Mail, Instagram, Facebook } from "lucide-react";
-
+import {
+  Mail,
+  Instagram,
+  Facebook,
+} from "lucide-react";
 const CALENDLY_URL = "https://calendly.com/shaurya-zyvoris/30min";
 
 export function Footer() {
@@ -12,12 +15,11 @@ export function Footer() {
           {/* Left: Brand and Description */}
           <div className="space-y-6 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 group w-fit">
-              <div className="relative h-8 w-8">
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary to-accent opacity-80 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute inset-[2px] rounded-md bg-background flex items-center justify-center">
-                  <span className="text-sm font-bold text-primary">Z</span>
-                </div>
-              </div>
+              <img
+  src="/logo.png"
+  alt="Zyvoris"
+  className="h-10 w-auto"
+/>
               <span className="text-xl font-bold tracking-tight text-foreground">
                 Zyvoris
               </span>
@@ -88,11 +90,11 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/terms"
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-                  >
-                    Terms
-                  </Link>
+  href="/terms"
+  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+>
+  Terms & Conditions
+</Link>
                 </li>
               </ul>
             </div>
@@ -106,14 +108,15 @@ export function Footer() {
               </h3>
               <div className="space-y-4">
                 <a
-                  href="mailto:shaurya@zyvoris.com"
-                  className="inline-flex text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-                >
-                  shaurya@zyvoris.com
-                </a>
+  href="mailto:shaurya@zyvoris.com?subject=Strategy%20Call%20Inquiry"
+  className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary hover:underline transition-colors duration-200"
+>
+  <Mail className="h-4 w-4" />
+  <span>shaurya@zyvoris.com</span>
+</a>
                 <div className="flex gap-4 pt-2">
                   <a
-                    href="https://instagram.com/zyvoris"
+                    href="https://www.instagram.com/zyvoris.ai?igsh=Mmt6dXc1bW5qeGlp&utm_source=qr"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
@@ -122,7 +125,7 @@ export function Footer() {
                     <Instagram className="h-5 w-5" />
                   </a>
                   <a
-                    href="https://facebook.com/zyvoris"
+                    href="https://www.facebook.com/share/1FdHA3eWKd/?mibextid=wwXIfr"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"

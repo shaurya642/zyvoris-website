@@ -112,10 +112,7 @@ export function IndustriesSection() {
                 {industry.description}
               </p>
 
-              {/* Arrow indicator */}
-              <div className="absolute top-5 right-5 h-8 w-8 flex items-center justify-center rounded-lg bg-primary/5 border border-primary/20 group-hover:bg-primary/15 transition-all duration-300 opacity-0 group-hover:opacity-100">
-                <ArrowRight className="h-4 w-4 text-primary" />
-              </div>
+              
             </div>
           ))}
         </div>
@@ -129,10 +126,15 @@ export function IndustriesSection() {
             <p className="text-base text-muted-foreground leading-relaxed">
               We build custom AI automation systems for any service business. If your industry isn&apos;t listed, we can create a tailored solution specifically for your needs.
             </p>
-            <button className="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all duration-200">
-              Let&apos;s Talk
-              <ArrowRight className="h-4 w-4" />
-            </button>
+            <a
+  href="https://calendly.com/shaurya-zyvoris/30min"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground transition-all duration-300 hover:shadow-[0_0_30px_rgba(99,102,241,0.6)]"
+>
+  Let&apos;s Talk
+  <ArrowRight className="h-4 w-4" />
+</a>
           </div>
         </div>
       </div>

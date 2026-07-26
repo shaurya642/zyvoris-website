@@ -1,5 +1,5 @@
 "use client";
-
+import { useEffect, useState } from "react";
 import { ArrowRight, Play, Zap, CheckCircle2, Calendar, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -9,31 +9,41 @@ const workflowSteps = [
   {
     icon: Zap,
     label: "New Lead",
-    description: "Lead comes in",
+    description: "Inquiry received instantly",
   },
   {
     icon: Zap,
     label: "AI Responds Instantly",
-    description: "Immediate engagement",
+    description: "Replies within seconds",
   },
   {
     icon: CheckCircle2,
     label: "Lead Qualified",
-    description: "Smart qualification",
+    description: "AI identifies serious prospects",
   },
   {
     icon: Calendar,
     label: "Appointment Booked",
-    description: "Scheduled automatically",
+    description: "Meeting scheduled automatically",
   },
   {
     icon: Bell,
     label: "Owner Notified",
-    description: "You stay informed",
+    description: "Instant notification delivered",
   },
 ];
 
 export function HeroSection() {
+
+  const [activeStep, setActiveStep] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % workflowSteps.length);
+    }, 1400);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Subtle background glow - only blue */}
@@ -56,14 +66,18 @@ export function HeroSection() {
 
             {/* Main headline */}
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-balance">
-              Never Let Another Lead Go{" "}
-              <span className="text-primary">Cold.</span>
+              Never Miss
+              <br />
+              Another Lead
+              <span className="text-primary">
+                {" "}
+                Again.
+              </span>
             </h1>
 
             {/* Subheadline */}
             <p className="mt-6 text-lg sm:text-xl text-muted-foreground leading-relaxed text-pretty">
-              AI-powered lead response, intelligent follow-ups and appointment booking systems for service businesses that rely on fast customer response.
-            </p>
+              AI-powered lead qualification, instant follow-ups, and automated appointment booking—so every new lead gets a response in seconds, not hours.            </p>
 
             {/* CTAs */}
             <div className="mt-10 flex flex-col sm:flex-row items-center lg:items-start lg:justify-start justify-center gap-4">
@@ -101,19 +115,35 @@ export function HeroSection() {
             <div className="space-y-6">
               {workflowSteps.map((step, index) => {
                 const Icon = step.icon;
+                const isActive = activeStep === index;
                 return (
-                  <div key={index} className="relative">
+                  <div key={index} className="relative">{index < workflowSteps.length - 1 && (
+                    <div className="absolute left-6 top-[72px] h-6 w-0.5 overflow-hidden rounded-full bg-border/50">
+                      <div
+                        className={`absolute left-0 top-0 w-full bg-primary transition-all duration-700 ${isActive
+                          ? "h-full shadow-[0_0_12px_rgba(59,130,246,0.9)]"
+                          : "h-0"
+                          }`}
+                      />ss
+                    </div>
+                  )}
                     {/* Workflow Card */}
-                    <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/40 backdrop-blur-md p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10">
+                    <div className={`group relative overflow-hidden rounded-2xl border p-6 backdrop-blur-md transition-all duration-500 ${isActive
+                      ? "border-primary/70 bg-card/90 shadow-[0_0_45px_rgba(59,130,246,0.28)] scale-[1.03] ring-1 ring-primary/30"
+                      : "border-border/40 bg-card/40 hover:border-primary/40 hover:bg-card/60"
+                      }`}><div
+                        className={`absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                          }`}
+                      />
                       {/* Glassmorphism glow effect */}
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      
+
                       <div className="relative flex items-center gap-4">
                         {/* Icon with glow */}
                         <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
                           <Icon className="w-6 h-6 text-primary" />
                         </div>
-                        
+
                         <div className="flex-1">
                           <h3 className="text-lg font-semibold text-foreground">
                             {step.label}
@@ -126,11 +156,7 @@ export function HeroSection() {
                     </div>
 
                     {/* Connecting Line with animation */}
-                    {index < workflowSteps.length - 1 && (
-                      <div className="absolute left-6 top-[72px] w-0.5 h-6 bg-gradient-to-b from-primary/40 to-transparent">
-                        <div className="absolute inset-0 bg-gradient-to-b from-primary to-transparent animate-pulse" />
-                      </div>
-                    )}
+
                   </div>
                 );
               })}
