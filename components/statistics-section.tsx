@@ -23,10 +23,13 @@ export function StatisticsSection() {
   ];
 
   return (
-    <section id="statistics" className="relative py-24 sm:py-32">
+    <section
+  id="statistics"
+  className="relative overflow-hidden py-24 sm:py-32"
+>
       {/* Subtle background glow */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/8 rounded-full blur-3xl opacity-40" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[450px] sm:h-[450px] lg:w-[600px] lg:h-[600px] bg-primary/8 rounded-full blur-3xl opacity-40" />
       </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

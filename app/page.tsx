@@ -12,16 +12,16 @@ import { Footer } from "@/components/footer";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Navbar />
-      <HeroSection />
-      <TechnologySection />
-      <TrustBar />
-      <StatisticsSection />
-      <ServicesSection />
-      <ProcessSection />
-      <IndustriesSection />
-      <CTASection />
-      <Footer />
+     <Navbar />
+<HeroSection />
+<TechnologySection />
+<TrustBar />
+<StatisticsSection />
+<ServicesSection />
+<ProcessSection />
+<IndustriesSection />
+<CTASection />
+<Footer />
     </main>
   );
 }

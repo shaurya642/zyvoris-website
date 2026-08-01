@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${geistMono.variable} bg-background scroll-smooth`}>
-      <body className="font-sans antialiased selection:bg-primary/20 selection:text-foreground">
+      <body className="font-sans antialiased overflow-x-hidden selection:bg-primary/20 selection:text-foreground">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

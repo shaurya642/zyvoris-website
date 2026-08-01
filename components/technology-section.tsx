@@ -25,11 +25,11 @@ export function TechnologySection() {
         </div>
 
         {/* Logo Wall */}
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
+        <div className="mx-auto flex max-w-full flex-wrap items-center justify-center gap-x-6 gap-y-8 overflow-hidden px-2">
           {technologies.map((tech) => (
             <div
               key={tech.name}
-              className="group transition-all duration-300 hover:scale-110"
+              className="group flex-shrink-0 transition-transform duration-300 hover:scale-105"
             >
               <div className="text-white/40 font-medium text-lg md:text-xl tracking-tight transition-all duration-300 group-hover:text-white group-hover:drop-shadow-[0_0_20px_rgba(139,92,246,0.6)]">
                 {tech.text}
