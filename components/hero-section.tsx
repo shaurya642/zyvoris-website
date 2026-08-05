@@ -1,6 +1,14 @@
 "use client";
+
 import { useEffect, useState } from "react";
-import { ArrowRight, Play, Zap, CheckCircle2, Calendar, Bell } from "lucide-react";
+import {
+  ArrowRight,
+  Play,
+  Zap,
+  CheckCircle2,
+  Calendar,
+  Bell,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const CALENDLY_URL = "https://calendly.com/shaurya-zyvoris/30min";
@@ -34,87 +42,72 @@ const workflowSteps = [
 ];
 
 export function HeroSection() {
-
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % workflowSteps.length);
-    }, 1400);
+    }, 1800);
 
     return () => clearInterval(interval);
   }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Subtle background glow - only blue */}
-      <div
-        className="
-absolute
-top-1/3
-left-1/2
--translate-x-1/2
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(47,125,255,0.08),transparent_60%)]" />
 
-w-[260px]
-h-[260px]
+      <div className="absolute left-1/2 top-[32%] h-[260px] w-[260px] -translate-x-1/2 rounded-full bg-primary/10 blur-[90px] md:h-[640px] md:w-[640px] md:blur-[150px]" />
 
-md:w-[600px]
-md:h-[600px]
-
-bg-primary/10
-rounded-full
-blur-2xl
-md:blur-3xl
-opacity-40
-"
-      />
-
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+        <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
           <div className="text-center lg:text-left">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-secondary/50 px-4 py-1.5 mb-8 backdrop-blur-sm">
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/[0.03] px-5 py-2 backdrop-blur-xl shadow-[0_10px_26px_rgba(47,125,255,0.08)]">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-70" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
               </span>
-              <span className="text-sm font-medium text-muted-foreground">
+
+              <span className="text-sm font-medium tracking-wide text-primary">
                 AI-Powered Automation
               </span>
             </div>
 
-            {/* Main headline */}
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-balance">
+            <h1 className="max-w-[720px] text-5xl font-extrabold leading-[0.94] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl xl:text-[82px]">
               Never Miss
               <br />
               Another Lead
-              <span className="text-primary">
-                {" "}
-                Again.
-              </span>
+              <span className="text-primary"> Again.</span>
             </h1>
 
-            {/* Subheadline */}
-            <p className="mt-6 text-lg sm:text-xl text-muted-foreground leading-relaxed text-pretty">
-              AI-powered lead qualification, instant follow-ups, and automated appointment booking—so every new lead gets a response in seconds, not hours.            </p>
+            <p className="mx-auto mt-8 max-w-[620px] text-lg leading-8 text-white/60 sm:text-xl lg:mx-0">
+              AI-powered lead qualification, instant follow-ups, and automated
+              appointment booking—so every new lead gets a response in seconds,
+              not hours.
+            </p>
 
-            {/* CTAs */}
-            <div className="mt-10 flex flex-col sm:flex-row items-center lg:items-start lg:justify-start justify-center gap-4">
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
               <Button
                 asChild
                 size="lg"
-                className="btn-glow bg-primary text-primary-foreground hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] transition-[transform,opacity,border-color,box-shadow] duration-300 px-8 py-6 text-base font-semibold shadow-lg shadow-primary/25"
+                className="group h-auto rounded-xl bg-primary px-8 py-6 text-base font-semibold text-white shadow-[0_12px_30px_rgba(47,125,255,0.22)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:bg-primary hover:shadow-[0_18px_38px_rgba(47,125,255,0.30)] active:translate-y-0"
               >
-                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center"
+                >
                   Book a Strategy Call
-                  <ArrowRight className="ml-2 h-5 w-5" />
+
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-500 group-hover:translate-x-1.5" />
                 </a>
               </Button>
+
               <Button
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-border/60 bg-secondary/30 backdrop-blur-sm hover:bg-secondary/50 hover:border-primary/40 px-8 py-6 text-base font-semibold text-foreground transition-[transform,opacity,border-color,box-shadow] duration-300"
+                className="h-auto rounded-xl border border-white/10 bg-white/[0.03] px-8 py-6 text-white backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-primary/30 hover:bg-white/[0.05]"
               >
                 <a href="#process">
                   <Play className="mr-2 h-4 w-4" />
@@ -123,69 +116,98 @@ opacity-40
               </Button>
             </div>
 
-            {/* Trust statement */}
-            <p className="mt-6 text-sm text-muted-foreground/80">
+            <p className="mt-6 text-sm text-white/45">
               Built for service businesses that value fast response times.
             </p>
           </div>
 
-          {/* Right Side - Workflow Visualization */}
-          <div className="relative">
-            <div className="space-y-6">
+          <div className="relative w-full">
+            <div className="absolute inset-0 rounded-[40px] bg-primary/[0.025] blur-3xl" />
+
+            <div className="relative space-y-4">
               {workflowSteps.map((step, index) => {
                 const Icon = step.icon;
+
                 const isActive = activeStep === index;
+
+                const wasActive =
+                  activeStep ===
+                  (index - 1 + workflowSteps.length) % workflowSteps.length;
+
                 return (
-                  <div key={index} className="relative">{index < workflowSteps.length - 1 && (
-                    <div className="absolute left-6 top-[72px] h-6 w-0.5 overflow-hidden rounded-full bg-border/50">
-                      <div
-                        className={`absolute left-0 top-0 w-full bg-primary transition-[transform,opacity,border-color,box-shadow] duration-400 ${isActive
-                          ? "h-full shadow-[0_0_12px_rgba(59,130,246,0.9)]"
-                          : "h-0"
+                  <div key={index} className="relative">
+                    {index < workflowSteps.length - 1 && (
+                      <div className="absolute left-7 top-[74px] h-8 w-px overflow-hidden rounded-full bg-white/10">
+                        <div
+                          className={`absolute left-0 w-full bg-gradient-to-b from-primary via-primary/80 to-transparent transition-all duration-700 ${
+                            isActive
+                              ? "top-0 h-full opacity-100"
+                              : wasActive
+                              ? "top-full h-full opacity-0"
+                              : "-top-full h-full opacity-0"
                           }`}
-                      />
-                    </div>
-                  )}
-                    {/* Workflow Card */}
+                        />
+                      </div>
+                    )}
+
                     <div
                       style={{ willChange: "transform, opacity" }}
-                      className={`group relative overflow-hidden rounded-2xl border p-6 backdrop-blur-sm transition-[transform,opacity,border-color,box-shadow] duration-500 ${isActive
-                          ? "border-primary/70 bg-card/90 shadow-[0_0_18px_rgba(59,130,246,0.22)] scale-[1.01] ring-1 ring-primary/30"
-                          : "border-border/40 bg-card/40 hover:border-primary/40 hover:bg-card/60"
+                      className={`group relative overflow-hidden rounded-3xl border backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                        isActive
+                          ? "border-primary/25 bg-white/[0.04] shadow-[0_12px_30px_rgba(47,125,255,0.10)]"
+                          : "border-white/10 bg-white/[0.03] hover:-translate-y-1 hover:border-primary/20 hover:bg-white/[0.04] hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)]"
+                      }`}
+                    >
+                      <div
+                        className={`absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_top_right,rgba(47,125,255,0.08),transparent_60%)] transition-opacity duration-500 ${
+                          isActive
+                            ? "opacity-100"
+                            : "opacity-0 group-hover:opacity-100"
                         }`}
-                    ><div
-                        className={`absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-                          }`}
                       />
-                      {/* Glassmorphism glow effect */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                      <div className="relative flex items-center gap-4">
-                        {/* Icon with glow */}
-                        <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:shadow-lg group-hover:shadow-primary/20 transition-[transform,opacity,border-color,box-shadow] duration-300">
-                          <Icon className="w-6 h-6 text-primary" />
+                      <div className="relative flex items-center gap-4 p-6">
+                        <div
+                          className={`flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl border transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                            isActive
+                              ? "border-primary/25 bg-primary/10 shadow-[0_8px_20px_rgba(47,125,255,0.10)]"
+                              : "border-white/10 bg-primary/5 group-hover:border-primary/25 group-hover:bg-primary/10"
+                          }`}
+                        >
+                          <Icon
+                            className={`h-6 w-6 text-primary transition-all duration-500 ${
+                              isActive
+                                ? "scale-105"
+                                : "group-hover:scale-105 group-hover:rotate-2"
+                            }`}
+                          />
                         </div>
 
                         <div className="flex-1">
-                          <h3 className="text-lg font-semibold text-foreground">
+                          <h3 className="text-lg font-semibold tracking-tight text-white">
                             {step.label}
                           </h3>
-                          <p className="text-sm text-muted-foreground mt-0.5">
+
+                          <p className="mt-1 text-sm leading-6 text-white/60">
                             {step.description}
                           </p>
                         </div>
+
+                        <div
+                          className={`h-2.5 w-2.5 rounded-full transition-all duration-500 ${
+                            isActive
+                              ? "bg-primary shadow-[0_0_12px_rgba(47,125,255,0.45)]"
+                              : "bg-white/15"
+                          }`}
+                        />
                       </div>
                     </div>
-
-                    {/* Connecting Line with animation */}
-
                   </div>
                 );
               })}
             </div>
 
-            {/* Subtle glow behind workflow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px] md:w-[400px] md:h-[400px] bg-primary/10 rounded-full blur-xl md:blur-3xl opacity-40 -z-10" />
+            <div className="pointer-events-none absolute inset-0 rounded-[36px] border border-white/[0.03]" />
           </div>
         </div>
       </div>

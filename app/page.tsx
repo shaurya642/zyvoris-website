@@ -11,17 +11,26 @@ import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-     <Navbar />
-<HeroSection />
-<TechnologySection />
-<TrustBar />
-<StatisticsSection />
-<ServicesSection />
-<ProcessSection />
-<IndustriesSection />
-<CTASection />
-<Footer />
+    <main className="relative min-h-screen overflow-x-hidden bg-[#05060A] text-white">
+      <Navbar />
+
+      <HeroSection />
+
+      <TechnologySection />
+
+      <TrustBar />
+
+      <StatisticsSection />
+
+      <ServicesSection />
+
+      <ProcessSection />
+
+      <IndustriesSection />
+
+      <CTASection />
+
+      <Footer />
     </main>
   );
 }

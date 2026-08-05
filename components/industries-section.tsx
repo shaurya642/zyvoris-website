@@ -12,6 +12,9 @@ import {
   Building2,
   ArrowRight,
 } from "lucide-react";
+import { SectionReveal } from "@/components/section-reveal";
+
+const CALENDLY_URL = "https://calendly.com/shaurya-zyvoris/30min";
 
 export function IndustriesSection() {
   const industries = [
@@ -19,125 +22,141 @@ export function IndustriesSection() {
       icon: Hammer,
       title: "Roofing",
       description:
-        "Capture every roof repair and replacement inquiry instantly. AI responds 24/7 to schedule inspections and keep leads warm.",
+        "Capture every roof repair and replacement inquiry instantly. AI responds 24/7, qualifies homeowners, and books inspections automatically.",
     },
     {
       icon: Wrench,
       title: "HVAC",
       description:
-        "Never miss a furnace or AC emergency. Instant dispatch scheduling and seasonal maintenance follow-ups that drive recurring revenue.",
+        "Convert emergency calls and seasonal maintenance requests into scheduled appointments without manual follow-up.",
     },
     {
       icon: Droplet,
       title: "Plumbing",
       description:
-        "Handle urgent service requests automatically. AI dispatches qualified leads and manages emergency callbacks seamlessly.",
+        "Respond to urgent plumbing requests in seconds and keep every customer updated until the job is booked.",
     },
     {
       icon: Zap,
       title: "Electrical",
       description:
-        "Respond to every service call within seconds. Smart scheduling that reduces travel time and increases appointments booked.",
+        "Automatically qualify service requests, reduce response time, and keep electricians focused on the work that matters.",
     },
     {
       icon: Sun,
       title: "Solar",
       description:
-        "Convert solar inquiries into consultations instantly. Qualify leads and book appointments automatically while you're sleeping.",
+        "Qualify homeowners, answer common questions instantly, and schedule consultations while your team sleeps.",
     },
     {
       icon: Home,
       title: "Real Estate",
       description:
-        "Never miss a property inquiry. Instant responses and nurture sequences that turn browsers into qualified leads.",
+        "Engage buyers and sellers instantly with AI conversations that turn inquiries into qualified appointments.",
     },
     {
       icon: Briefcase,
       title: "Marketing Agencies",
       description:
-        "Scale client acquisition without scaling your team. Automated client outreach, proposals, and follow-up sequences.",
+        "Automate lead qualification, follow-ups, and meeting scheduling so your team spends more time closing deals.",
     },
     {
       icon: Stethoscope,
       title: "Medical Clinics",
       description:
-        "Patient engagement that feels personal. Appointment reminders, follow-ups, and reactivation campaigns that improve retention.",
+        "Improve patient communication with appointment reminders, automated follow-ups, and faster response times.",
     },
     {
       icon: Building2,
       title: "Home Services",
       description:
-        "Compete with the big players. Enterprise-level automation tailored for any home service business you run.",
+        "Enterprise-grade AI automation tailored for every home service business looking to grow without hiring more staff.",
     },
   ];
 
   return (
-    <section id="industries" className="relative py-24 sm:py-32">
-      {/* Background elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute bottom-0 left-1/3 w-[500px] h-[500px] bg-primary/3 rounded-full blur-3xl" />
-      </div>
-
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Section header */}
-        <div className="mx-auto max-w-2xl text-center mb-16">
-          <span className="text-sm font-semibold uppercase tracking-wider text-primary">
-            Industries We Serve
-          </span>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl text-balance">
-            AI automation for service businesses
-          </h2>
-          <p className="mt-5 text-lg text-muted-foreground text-pretty leading-relaxed">
-            Whether you're in roofing, HVAC, plumbing, or any service industry, Zyvoris powers your lead response at scale.
-          </p>
+    <SectionReveal>
+      <section
+        id="industries"
+        className="relative overflow-hidden bg-[#05060A] py-28 sm:py-36"
+      >
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(47,125,255,0.05),transparent_65%)]" />
+          <div className="absolute left-1/2 top-1/2 h-[820px] w-[820px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[170px]" />
         </div>
 
-        {/* Industries grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-16">
-          {industries.map((industry, index) => (
-            <div
-              key={index}
-              className="card-glow group relative overflow-hidden rounded-2xl border border-border/40 bg-gradient-to-br from-slate-900/40 to-slate-800/20 p-8 backdrop-blur-md transition-all duration-300 hover:border-primary/40 hover:from-slate-900/60 hover:to-slate-800/40 hover:shadow-lg hover:shadow-primary/5"
-            >
-              {/* Icon container */}
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/8 border border-primary/20 group-hover:bg-primary/15 group-hover:border-primary/40 transition-all duration-300 mb-5">
-                <industry.icon className="h-7 w-7 text-primary" />
-              </div>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto mb-16 max-w-2xl text-center">
+            <span className="text-sm font-semibold uppercase tracking-[0.25em] text-primary">
+              Industries We Serve
+            </span>
 
-              {/* Content */}
-              <h3 className="text-xl font-semibold text-foreground mb-3 flex items-center gap-2">
-                {industry.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {industry.description}
-              </p>
+            <h2 className="mt-4 text-balance text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
+              AI automation built for service businesses
+            </h2>
 
-              
-            </div>
-          ))}
-        </div>
-
-        {/* Custom industries CTA */}
-        <div className="mx-auto max-w-2xl text-center">
-          <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-gradient-to-br from-slate-900/40 to-slate-800/20 p-10 backdrop-blur-md">
-            <h3 className="text-xl font-semibold text-foreground mb-3">
-              Don&apos;t see your industry?
-            </h3>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              We build custom AI automation systems for any service business. If your industry isn&apos;t listed, we can create a tailored solution specifically for your needs.
+            <p className="mt-6 text-lg leading-8 text-white/60">
+              Whether you run a local service company or a growing agency,
+              Zyvoris helps you respond faster, qualify better, and book more
+              appointments automatically.
             </p>
-            <a
-  href="https://calendly.com/shaurya-zyvoris/30min"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground transition-all duration-300 hover:shadow-[0_0_30px_rgba(99,102,241,0.6)]"
->
-  Let&apos;s Talk
-  <ArrowRight className="h-4 w-4" />
-</a>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {industries.map((industry) => (
+              <div
+                key={industry.title}
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:border-primary/25 hover:bg-white/[0.04] hover:shadow-[0_16px_40px_rgba(0,0,0,0.22)]"
+              >
+                <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_top_right,rgba(47,125,255,0.08),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                <div className="relative">
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 shadow-[0_8px_24px_rgba(47,125,255,0.08)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-0.5 group-hover:border-primary/35 group-hover:bg-primary/15">
+                    <industry.icon className="h-7 w-7 text-primary transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" />
+                  </div>
+
+                  <h3 className="mb-3 text-xl font-semibold tracking-tight text-white transition-colors duration-300 group-hover:text-primary">
+                    {industry.title}
+                  </h3>
+
+                  <p className="text-sm leading-7 text-white/60">
+                    {industry.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mx-auto mt-20 max-w-3xl">
+            <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03] p-10 text-center backdrop-blur-2xl shadow-[0_18px_50px_rgba(0,0,0,0.25)] sm:p-12">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(47,125,255,0.08),transparent_60%)]" />
+
+              <div className="relative">
+                <h3 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                  Don't see your industry?
+                </h3>
+
+                <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/60">
+                  Every business has unique workflows. We design custom AI
+                  automation systems tailored to how your team operates and how
+                  your customers buy.
+                </p>
+
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-8 inline-flex items-center rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(47,125,255,0.22)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(47,125,255,0.30)]"
+                >
+                  Let's Talk
+
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-500 group-hover:translate-x-1.5" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </SectionReveal>
   );
 }

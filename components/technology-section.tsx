@@ -1,5 +1,7 @@
 "use client";
 
+import { SectionReveal } from "@/components/section-reveal";
+
 export function TechnologySection() {
   const technologies = [
     { name: "OpenAI", text: "OpenAI" },
@@ -15,29 +17,42 @@ export function TechnologySection() {
   ];
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6">
-        {/* Section Title */}
-        <div className="text-center mb-12">
-          <p className="text-muted-foreground text-sm md:text-base">
-            Powered by industry-leading platforms.
-          </p>
+    <SectionReveal>
+      <section className="relative overflow-hidden bg-[#05060A] py-20 sm:py-24">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(47,125,255,0.04),transparent_70%)]" />
         </div>
 
-        {/* Logo Wall */}
-        <div className="mx-auto flex max-w-full flex-wrap items-center justify-center gap-x-6 gap-y-8 overflow-hidden px-2">
-          {technologies.map((tech) => (
-            <div
-              key={tech.name}
-              className="group flex-shrink-0 transition-transform duration-300 hover:scale-105"
-            >
-              <div className="text-white/40 font-medium text-lg md:text-xl tracking-tight transition-all duration-300 group-hover:text-white group-hover:drop-shadow-[0_0_20px_rgba(139,92,246,0.6)]">
-                {tech.text}
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto mb-14 max-w-2xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary">
+              Technology Stack
+            </p>
+
+            <h2 className="mt-4 text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl">
+              Powered by trusted platforms
+            </h2>
+
+            <p className="mt-5 text-lg leading-8 text-white/60">
+              We build reliable AI automation using industry-leading tools that
+              scale with your business.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+            {technologies.map((tech) => (
+              <div
+                key={tech.name}
+                className="group flex h-24 items-center justify-center rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-primary/25 hover:bg-white/[0.04] hover:shadow-[0_16px_36px_rgba(0,0,0,0.22)]"
+              >
+                <span className="text-lg font-semibold tracking-tight text-white/45 transition-all duration-500 group-hover:text-primary">
+                  {tech.text}
+                </span>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </SectionReveal>
   );
 }

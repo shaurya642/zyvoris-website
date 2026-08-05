@@ -2,134 +2,112 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const CALENDLY_URL = "https://calendly.com/shaurya-zyvoris/30min";
+
+const navigation = [
+  { name: "Services", href: "#services" },
+  { name: "Process", href: "#process" },
+  { name: "Industries", href: "#industries" },
+  { name: "Contact", href: "#contact" },
+];
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2 group">
-           <img
-  src="/logo.png"
-  alt="Zyvoris"
-  className="h-10 w-auto"
-/>
-            <span className="text-xl font-bold tracking-tight text-foreground">
-              Zyvoris
-            </span>
-          </Link>
+    <header className="fixed inset-x-0 top-0 z-50">
+      <nav className="mx-auto mt-4 flex w-[96%] max-w-7xl items-center justify-between rounded-2xl border border-white/10 bg-[#07080D]/75 px-6 py-4 backdrop-blur-2xl shadow-[0_12px_36px_rgba(0,0,0,0.35)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:px-8 lg:px-10">
+        <Link href="/" className="group flex items-center">
+          <img
+            src="/logo.svg"
+            alt="Zyvoris"
+            draggable={false}
+            className="h-8 w-auto transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+          />
+        </Link>
+
+        <div className="hidden items-center gap-8 lg:flex">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="group relative text-[15px] font-medium text-white/65 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-white"
+            >
+              {item.name}
+              <span className="absolute -bottom-1 left-0 h-px w-0 bg-primary transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
+            </Link>
+          ))}
         </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex lg:items-center lg:gap-8">
-          <Link
-            href="#services"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Services
-          </Link>
-          <Link
-            href="#process"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Process
-          </Link>
-          <Link
-            href="#industries"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Industries
-          </Link>
-          <Link
-            href="#contact"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Contact
-          </Link>
-        </div>
-
-        <div className="hidden lg:flex lg:items-center lg:gap-4">
+        <div className="hidden lg:flex">
           <Button
             asChild
-            className="btn-glow bg-gradient-to-r from-primary to-accent text-primary-foreground hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25 active:scale-[0.98] transition-all duration-300"
+            className="group h-auto rounded-xl bg-primary px-6 py-2.5 text-white shadow-[0_12px_30px_rgba(47,125,255,0.22)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:bg-primary hover:shadow-[0_18px_38px_rgba(47,125,255,0.30)]"
           >
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Book a Strategy Call
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-500 group-hover:translate-x-1.5" />
             </a>
           </Button>
         </div>
 
-        {/* Mobile menu button */}
         <button
           type="button"
-          className="lg:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-white transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-primary/30 hover:bg-primary/10 lg:hidden"
         >
           {mobileMenuOpen ? (
-            <X className="h-6 w-6" />
+            <X className="h-5 w-5" />
           ) : (
-            <Menu className="h-6 w-6" />
+            <Menu className="h-5 w-5" />
           )}
         </button>
       </nav>
 
-      {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-border/40 bg-background/95 backdrop-blur-xl">
-          <div className="space-y-1 px-6 py-4">
-            <Link
-              href="#services"
-              className="block py-3 text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              href="#process"
-              className="block py-3 text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Process
-            </Link>
-            <Link
-              href="#industries"
-              className="block py-3 text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Industries
-            </Link>
-            <Link
-              href="#contact"
-              className="block py-3 text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            <div className="pt-4">
-              <Button
-                asChild
-                className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+      <div
+        className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden ${
+          mobileMenuOpen
+            ? "max-h-[500px] opacity-100"
+            : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="mx-auto mt-3 w-[96%] max-w-7xl rounded-2xl border border-white/10 bg-[#07080D]/90 p-5 backdrop-blur-2xl shadow-[0_12px_36px_rgba(0,0,0,0.30)]">
+          <div className="space-y-1">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block rounded-xl px-4 py-3 text-base font-medium text-white/70 transition-all duration-300 hover:bg-white/[0.04] hover:text-white"
               >
-                <a 
-                  href={CALENDLY_URL} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Book a Strategy Call
-                </a>
-              </Button>
-            </div>
+                {item.name}
+              </Link>
+            ))}
           </div>
+
+          <Button
+            asChild
+            className="mt-5 h-auto w-full rounded-xl bg-primary py-3 text-white shadow-[0_12px_30px_rgba(47,125,255,0.22)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-primary hover:shadow-[0_18px_38px_rgba(47,125,255,0.30)]"
+          >
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Book a Strategy Call
+            </a>
+          </Button>
         </div>
-      )}
+      </div>
     </header>
   );
 }

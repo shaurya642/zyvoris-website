@@ -1,76 +1,98 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Dark theme by default for Zyvoris */
-  --background: oklch(0.08 0.01 260);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.12 0.01 260);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.12 0.01 260);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.65 0.2 270);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.18 0.01 260);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.18 0.01 260);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.55 0.25 280);
-  --accent-foreground: oklch(0.98 0 0);
+  --background: #05060a;
+  --foreground: #ffffff;
+
+  --card: oklch(0.13 0.008 255);
+  --card-foreground: #ffffff;
+
+  --popover: oklch(0.13 0.008 255);
+  --popover-foreground: #ffffff;
+
+  --primary: #2f7dff;
+  --primary-foreground: #ffffff;
+
+  --secondary: oklch(0.17 0.008 255);
+  --secondary-foreground: #ffffff;
+
+  --muted: oklch(0.17 0.008 255);
+  --muted-foreground: rgba(255, 255, 255, 0.6);
+
+  --accent: #2f7dff;
+  --accent-foreground: #ffffff;
+
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.22 0.02 260);
-  --input: oklch(0.22 0.02 260);
-  --ring: oklch(0.65 0.2 270);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.1 0.01 260);
-  --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.65 0.2 270);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.18 0.01 260);
-  --sidebar-accent-foreground: oklch(0.98 0 0);
-  --sidebar-border: oklch(0.22 0.02 260);
-  --sidebar-ring: oklch(0.65 0.2 270);
+  --destructive-foreground: #ffffff;
+
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #2f7dff;
+
+  --chart-1: #2f7dff;
+  --chart-2: #4c91ff;
+  --chart-3: #6ca5ff;
+  --chart-4: #8db9ff;
+  --chart-5: #aecfff;
+
+  --radius: 1rem;
+
+  --sidebar: #05060a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #2f7dff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(255, 255, 255, 0.05);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #2f7dff;
 }
 
 @theme inline {
-  --font-sans: 'Inter', 'Inter Fallback', sans-serif;
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --font-sans: "Manrope", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
+
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 3px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 6px);
+
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -83,28 +105,125 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(47, 125, 255, 0.25);
+    color: white;
+  }
+
+  img {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    transition:
+      background-color .45s cubic-bezier(.22,1,.36,1),
+      border-color .45s cubic-bezier(.22,1,.36,1),
+      color .45s cubic-bezier(.22,1,.36,1),
+      transform .45s cubic-bezier(.22,1,.36,1),
+      box-shadow .45s cubic-bezier(.22,1,.36,1),
+      opacity .45s cubic-bezier(.22,1,.36,1);
+  }
+
+  *:focus-visible {
+    outline: 2px solid rgba(47, 125, 255, 0.9);
+    outline-offset: 3px;
   }
 }
 
-/* Custom gradient glow effect */
+/* ---------------- Premium Utilities ---------------- */
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
 .glow-blue {
-  box-shadow: 0 0 60px 20px rgba(99, 102, 241, 0.15),
-              0 0 100px 40px rgba(139, 92, 246, 0.1);
+  box-shadow:
+    0 0 40px rgba(47, 125, 255, 0.08),
+    0 0 80px rgba(47, 125, 255, 0.04);
 }
 
 .glow-text {
-  text-shadow: 0 0 40px rgba(139, 92, 246, 0.5);
+  text-shadow: 0 0 18px rgba(47, 125, 255, 0.18);
 }
 
-/* Animated gradient background */
+.card-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.card-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity .5s cubic-bezier(.22,1,.36,1);
+  pointer-events: none;
+  background:
+    radial-gradient(
+      500px circle at var(--mouse-x,50%) var(--mouse-y,50%),
+      rgba(47,125,255,.08),
+      transparent 42%
+    );
+}
+
+.card-glow:hover::after {
+  opacity: 1;
+}
+
+.section-glow {
+  position: relative;
+}
+
+.section-glow::before {
+  content: "";
+  position: absolute;
+  inset: auto;
+  left: 50%;
+  top: 50%;
+  width: min(900px,100%);
+  height: 420px;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(47,125,255,.08),
+      transparent 70%
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ---------------- Animations ---------------- */
+
 @keyframes gradient-shift {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -115,107 +234,51 @@
   animation: gradient-shift 8s ease infinite;
 }
 
-/* Subtle float animation */
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
+  0%,
+  100% {
+    transform: translateY(0);
   }
+
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
 }
 
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: float 7s ease-in-out infinite;
 }
 
-/* Premium button glow effects */
-.btn-glow {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-glow::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
-  background-size: 200% 100%;
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-  animation: gradient-shift 3s ease infinite;
-}
-
-.btn-glow:hover::before {
-  opacity: 0.5;
-}
-
-/* Subtle card glow on hover */
-.card-glow {
-  position: relative;
-}
-
-.card-glow::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  background: radial-gradient(
-    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(139, 92, 246, 0.06),
-    transparent 40%
-  );
-  pointer-events: none;
-}
-
-.card-glow:hover::after {
-  opacity: 1;
-}
-
-/* Premium section glow */
-.section-glow {
-  position: relative;
-}
-
-.section-glow::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 800px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Improved focus states */
-*:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-/* Smooth transitions for interactive elements */
-a, button {
-  transition: all 0.2s ease;
-}
-
-/* Animated pulse glow effect for CTA buttons */
 @keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(47,125,255,0);
   }
+
   50% {
-    box-shadow: 0 0 20px 10px rgba(139, 92, 246, 0.1);
+    box-shadow: 0 0 28px rgba(47,125,255,.12);
   }
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse-glow 3.5s ease-in-out infinite;
+}
+
+/* ---------------- Scrollbar ---------------- */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05060a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.12);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(47,125,255,.55);
 }
