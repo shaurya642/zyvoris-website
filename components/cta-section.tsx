@@ -6,56 +6,94 @@ import { SectionReveal } from "@/components/section-reveal";
 
 const CALENDLY_URL = "https://calendly.com/shaurya-zyvoris/30min";
 
+const EASE = "cubic-bezier(0.22,1,0.36,1)";
+
 export function CTASection() {
   return (
     <SectionReveal>
-      <section className="relative overflow-hidden bg-[#05060A] py-28 sm:py-36">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(47,125,255,0.05),transparent_65%)]" />
-          <div className="absolute left-1/2 top-1/2 h-[760px] w-[760px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/6 blur-[160px]" />
+      <section
+        aria-labelledby="cta-heading"
+        className="section-glow relative overflow-hidden bg-background py-24 sm:py-32 lg:py-36"
+      >
+        {/* Ambient section light */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+        >
+          <div className="absolute left-1/2 top-0 h-[420px] w-[700px] -translate-x-1/2 rounded-full bg-primary/[0.045] blur-[140px]" />
         </div>
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03] px-8 py-16 text-center backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.25)] sm:px-12 sm:py-20">
-            <div className="absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_top,rgba(47,125,255,0.08),transparent_55%)]" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] px-7 py-14 text-center shadow-[0_20px_60px_rgba(0,0,0,0.22)] backdrop-blur-2xl sm:px-12 sm:py-20 lg:px-16 lg:py-24">
+            {/* Restrained blue ambient light */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(47,125,255,0.07),transparent_58%)]"
+            />
+
+            {/* Subtle top border highlight */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-16 top-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent"
+            />
 
             <div className="relative">
-              <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-3xl border border-primary/20 bg-primary/10 shadow-[0_10px_30px_rgba(47,125,255,0.10)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-primary/35 hover:bg-primary/15">
-                <Sparkles className="h-9 w-9 text-primary transition-transform duration-500 group-hover:scale-105" />
+              {/* Icon */}
+              <div
+                className="group mx-auto mb-8 flex h-[72px] w-[72px] items-center justify-center rounded-2xl border border-primary/20 bg-primary/[0.08] shadow-[0_10px_30px_rgba(47,125,255,0.10)] transition-all duration-500 hover:-translate-y-1 hover:border-primary/35 hover:bg-primary/[0.12] hover:shadow-[0_14px_34px_rgba(47,125,255,0.15)]"
+                style={{ transitionTimingFunction: EASE }}
+              >
+                <Sparkles
+                  className="h-8 w-8 text-primary transition-transform duration-500 group-hover:scale-105"
+                  style={{ transitionTimingFunction: EASE }}
+                  aria-hidden="true"
+                />
               </div>
 
-              <h2 className="text-4xl font-bold tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
-                Ready to stop losing leads?
+              {/* Heading */}
+              <h2
+                id="cta-heading"
+                className="mx-auto max-w-3xl text-4xl font-bold tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl"
+              >
+                Turn more of your leads into booked appointments.
               </h2>
 
-              <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-white/60 sm:text-xl">
-                Book a free strategy call and discover how Zyvoris can automate
-                your lead qualification, follow-ups, and appointment booking so
-                every opportunity gets the attention it deserves.
+              {/* Supporting copy */}
+              <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
+                Book a free strategy call to walk through how your business
+                currently handles new leads and identify where Zyvoris can
+                automate response, qualification, follow-up, and booking.
               </p>
 
-              <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              {/* CTA */}
+              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:mt-12 sm:flex-row">
                 <Button
                   asChild
                   size="lg"
-                  className="group h-auto rounded-xl bg-primary px-9 py-6 text-base font-semibold text-white shadow-[0_12px_30px_rgba(47,125,255,0.22)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:bg-primary hover:shadow-[0_18px_38px_rgba(47,125,255,0.30)] active:translate-y-0"
+                  className="group h-auto rounded-xl bg-primary px-8 py-5 text-base font-semibold text-white shadow-[0_12px_30px_rgba(47,125,255,0.22)] transition-all duration-500 hover:-translate-y-1 hover:bg-primary hover:shadow-[0_18px_38px_rgba(47,125,255,0.28)] active:translate-y-0 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  style={{ transitionTimingFunction: EASE }}
                 >
                   <a
                     href={CALENDLY_URL}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Book a free Zyvoris strategy call"
                   >
-                    Book Your Free Strategy Call
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-500 group-hover:translate-x-1.5" />
+                    Book a Strategy Call
+
+                    <ArrowRight
+                      className="ml-2 h-5 w-5 transition-transform duration-500 group-hover:translate-x-1.5"
+                      style={{ transitionTimingFunction: EASE }}
+                      aria-hidden="true"
+                    />
                   </a>
                 </Button>
               </div>
 
-              <div className="mt-8">
-                <p className="text-sm tracking-wide text-white/45">
-                  No contracts. No commitment. Just a conversation.
-                </p>
-              </div>
+              {/* Reassurance */}
+              <p className="mt-7 text-sm text-white/40">
+                Free strategy call. No commitment.
+              </p>
             </div>
           </div>
         </div>

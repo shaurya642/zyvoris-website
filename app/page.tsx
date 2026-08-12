@@ -11,7 +11,10 @@ import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-[#05060A] text-white">
+    <main
+      id="main-content"
+      className="relative min-h-screen overflow-x-hidden bg-background text-foreground"
+    >
       <Navbar />
 
       <HeroSection />

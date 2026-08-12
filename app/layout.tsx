@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+
 import "./globals.css";
 
 const manrope = Manrope({
@@ -17,54 +18,71 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zyvoris.com"),
+
   title: {
-    default: "Zyvoris | AI Automation for Service Businesses",
+    default: "Zyvoris | AI Lead Response & Conversion System",
     template: "%s | Zyvoris",
   },
+
   description:
-    "AI-powered lead qualification, instant responses, automated follow-ups, CRM automation, and appointment booking for modern service businesses.",
+    "Zyvoris helps service businesses respond to new leads instantly, qualify them automatically, follow up consistently, book appointments, update their CRM, and keep their team informed.",
+
   keywords: [
-    "AI Automation",
+    "AI Lead Response",
+    "Lead Response System",
     "Lead Qualification",
-    "AI Follow Ups",
+    "Automated Lead Follow Up",
     "Appointment Booking",
     "CRM Automation",
+    "Speed to Lead",
     "Service Business Automation",
     "Roofing",
     "HVAC",
     "Plumbing",
-    "Marketing Agency",
-    "Medical Clinic",
+    "Electrical",
+    "Solar",
     "Real Estate",
+    "Marketing Agencies",
+    "Medical Clinics",
   ],
+
   authors: [
     {
       name: "Zyvoris",
     },
   ],
+
   creator: "Zyvoris",
   publisher: "Zyvoris",
   applicationName: "Zyvoris",
   category: "Business",
+
   robots: {
     index: true,
     follow: true,
   },
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
-    title: "Zyvoris | AI Automation for Service Businesses",
+    title: "Zyvoris | AI Lead Response & Conversion System",
     description:
-      "Never miss another lead with AI-powered lead qualification, instant responses, follow-ups, CRM automation, and appointment booking.",
+      "From new lead to booked appointment — automatically. Respond faster, qualify leads, follow up consistently, and keep your CRM updated.",
     url: "https://zyvoris.com",
     siteName: "Zyvoris",
     locale: "en_US",
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Zyvoris | AI Automation for Service Businesses",
+    title: "Zyvoris | AI Lead Response & Conversion System",
     description:
-      "Respond faster. Qualify smarter. Book more appointments automatically.",
+      "From new lead to booked appointment — automatically.",
   },
+
   icons: {
     icon: [
       {
@@ -104,6 +122,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen overflow-x-hidden bg-background font-sans text-foreground antialiased selection:bg-primary/20 selection:text-white">
         {children}
+
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>

@@ -1,117 +1,173 @@
 "use client";
 
-import { SectionReveal } from "@/components/section-reveal";
 import {
-  Search,
   Cpu,
-  Wrench,
   Rocket,
+  Search,
   TrendingUp,
+  Wrench,
 } from "lucide-react";
+import { SectionReveal } from "@/components/section-reveal";
+
+const steps = [
+  {
+    number: "01",
+    icon: Search,
+    title: "Discovery",
+    description:
+      "We map how new leads enter your business, how your team responds today, and where inquiries are getting delayed or missed.",
+  },
+  {
+    number: "02",
+    icon: Cpu,
+    title: "Strategy",
+    description:
+      "We design the lead-handling workflow around your qualification process, follow-up needs, booking flow, and existing tools.",
+  },
+  {
+    number: "03",
+    icon: Wrench,
+    title: "Build",
+    description:
+      "We build and connect the system so new leads can be responded to, qualified, followed up with, and moved toward the right next step.",
+  },
+  {
+    number: "04",
+    icon: Rocket,
+    title: "Launch",
+    description:
+      "We test the workflow, verify each connection, and deploy the system so it fits into the way your team already works.",
+  },
+  {
+    number: "05",
+    icon: TrendingUp,
+    title: "Optimize",
+    description:
+      "Once the system is running, we identify opportunities to refine conversations, follow-ups, routing, and the overall lead-handling workflow.",
+  },
+];
+
+const EASE = "cubic-bezier(0.22,1,0.36,1)";
 
 export function ProcessSection() {
-  const steps = [
-    {
-      number: "01",
-      icon: Search,
-      title: "Discovery",
-      description:
-        "We analyze your current lead flow, response times, and conversion bottlenecks.",
-    },
-    {
-      number: "02",
-      icon: Cpu,
-      title: "Strategy",
-      description:
-        "We design a custom AI automation blueprint around your business, workflows, and goals.",
-    },
-    {
-      number: "03",
-      icon: Wrench,
-      title: "Build",
-      description:
-        "Your automation system is built, integrated, and connected with the tools you already use.",
-    },
-    {
-      number: "04",
-      icon: Rocket,
-      title: "Launch",
-      description:
-        "Everything is tested, refined, and deployed to ensure reliable performance from day one.",
-    },
-    {
-      number: "05",
-      icon: TrendingUp,
-      title: "Optimize",
-      description:
-        "We continuously improve your system using real conversations, data, and business results.",
-    },
-  ];
-
   return (
     <SectionReveal>
       <section
         id="process"
-        className="relative overflow-hidden bg-[#05060A] py-28 sm:py-36"
+        aria-labelledby="process-heading"
+        className="section-glow relative overflow-hidden bg-background py-24 sm:py-32 lg:py-36"
       >
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(47,125,255,0.05),transparent_65%)]" />
-          <div className="absolute left-1/2 top-0 h-[720px] w-[720px] -translate-x-1/2 rounded-full bg-primary/5 blur-[160px]" />
-        </div>
+        {/* Ambient background */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-0 h-[480px] w-[700px] -translate-x-1/2 rounded-full bg-primary/[0.035] blur-[140px]"
+        />
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto mb-16 max-w-2xl text-center">
-            <span className="text-sm font-semibold uppercase tracking-[0.25em] text-primary">
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          {/* Section heading */}
+          <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
+            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary sm:text-sm">
               Our Process
             </span>
 
-            <h2 className="mt-4 text-balance text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
-              From chaos to automated clarity
+            <h2
+              id="process-heading"
+              className="mt-4 text-balance text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl"
+            >
+              A system built around your workflow.
             </h2>
 
-            <p className="mt-6 text-lg leading-8 text-white/60">
-              Every automation is built using a proven process focused on speed,
-              reliability, and measurable business growth.
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
+              We start with how your business handles leads today, then build
+              the response, qualification, follow-up, and booking workflow
+              around it.
             </p>
           </div>
 
+          {/* Process */}
           <div className="relative">
-            <div className="absolute left-0 right-0 top-10 hidden h-px bg-gradient-to-r from-transparent via-white/10 to-transparent lg:block" />
+            {/* Desktop connector */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute left-[10%] right-[10%] top-8 hidden h-px bg-gradient-to-r from-transparent via-white/[0.10] to-transparent lg:block"
+            />
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
-              {steps.map((step, index) => (
-                <div
-                  key={step.number}
-                  className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-7 text-center backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:border-primary/25 hover:bg-white/[0.04] hover:shadow-[0_18px_42px_rgba(0,0,0,0.22)]"
-                >
-                  <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_top,rgba(47,125,255,0.08),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <ol className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5 lg:items-stretch lg:gap-4">
+              {steps.map((step, index) => {
+                const Icon = step.icon;
 
-                  <div className="relative flex flex-col items-center">
-                    <div className="relative mb-6">
-                      <div className="flex h-20 w-20 items-center justify-center rounded-3xl border border-primary/20 bg-primary/10 shadow-[0_8px_22px_rgba(47,125,255,0.08)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 group-hover:border-primary/35 group-hover:bg-primary/15">
-                        <step.icon className="h-8 w-8 text-primary transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" />
+                return (
+                  <li key={step.number} className="relative h-full">
+                    <article
+                      className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.025] p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-primary/20 hover:bg-white/[0.035] hover:shadow-[0_18px_42px_rgba(0,0,0,0.18)] sm:p-7 lg:text-center"
+                      style={{
+                        transitionTimingFunction: EASE,
+                      }}
+                    >
+                      {/* Hover light */}
+                      <div
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_top,rgba(47,125,255,0.07),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                        style={{
+                          transitionTimingFunction: EASE,
+                        }}
+                      />
+
+                      <div className="relative flex h-full flex-col">
+                        {/* Icon + number */}
+                        <div className="mb-6 flex items-center gap-4 lg:flex-col lg:gap-0">
+                          <div className="relative">
+                            <div
+                              className="flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/20 bg-primary/[0.08] shadow-[0_8px_22px_rgba(47,125,255,0.07)] transition-all duration-500 group-hover:-translate-y-0.5 group-hover:border-primary/30 group-hover:bg-primary/[0.11]"
+                              style={{
+                                transitionTimingFunction: EASE,
+                              }}
+                            >
+                              <Icon
+                                className="h-7 w-7 text-primary transition-transform duration-500 group-hover:scale-105 group-hover:rotate-2"
+                                style={{
+                                  transitionTimingFunction: EASE,
+                                }}
+                                aria-hidden="true"
+                              />
+                            </div>
+
+                            {/* Step number */}
+                            <div
+                              aria-hidden="true"
+                              className="absolute -right-2 -top-2 flex h-7 w-7 items-center justify-center rounded-full border border-primary/20 bg-[#0B101B] text-[10px] font-semibold text-primary shadow-[0_6px_18px_rgba(47,125,255,0.12)]"
+                            >
+                              {step.number}
+                            </div>
+                          </div>
+
+                          {/* Mobile step label */}
+                          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-primary lg:hidden">
+                            Step {step.number}
+                          </span>
+                        </div>
+
+                        <h3 className="text-lg font-semibold tracking-tight text-white">
+                          {step.title}
+                        </h3>
+
+                        <p className="mt-3 text-sm leading-7 text-white/55">
+                          {step.description}
+                        </p>
                       </div>
+                    </article>
 
-                      <div className="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full border border-primary/20 bg-[#0E1320] text-[11px] font-semibold text-primary shadow-[0_6px_18px_rgba(47,125,255,0.15)]">
-                        {step.number}
-                      </div>
-                    </div>
-
-                    <h3 className="mb-3 text-lg font-semibold tracking-tight text-white">
-                      {step.title}
-                    </h3>
-
-                    <p className="text-sm leading-7 text-white/60">
-                      {step.description}
-                    </p>
-                  </div>
-
-                  {index < steps.length - 1 && (
-                    <div className="mx-auto mt-7 h-8 w-px bg-white/10 lg:hidden" />
-                  )}
-                </div>
-              ))}
-            </div>
+                    {/* Mobile connector */}
+                    {index < steps.length - 1 && (
+                      <div
+                        aria-hidden="true"
+                        className="mx-auto mt-5 h-7 w-px bg-white/[0.08] sm:hidden"
+                      />
+                    )}
+                  </li>
+                );
+              })}
+            </ol>
           </div>
         </div>
       </section>
