@@ -113,19 +113,19 @@
   }
 
   html {
-    scroll-behavior: smooth;
     background: var(--background);
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
 
+    min-height: 100vh;
+    overflow-x: hidden;
+
     font-family: "Manrope", sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
     text-rendering: optimizeLegibility;
-
-    overflow-x: hidden;
-    min-height: 100vh;
   }
 
   ::selection {
@@ -139,10 +139,8 @@
   }
 
   /*
-   * Keep interactive transitions lightweight globally.
-   *
-   * Individual components can still override these durations
-   * when a more premium interaction is intentional.
+   * Keep global transitions limited to actual visual properties.
+   * Avoid globally transitioning expensive or layout-related properties.
    */
   button,
   a,
@@ -150,12 +148,11 @@
   textarea,
   select {
     transition:
-      background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-      color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-      box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      background-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   *:focus-visible {
@@ -172,8 +169,12 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
 
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  /*
+   * Desktop gets the premium glass effect.
+   * Mobile override below removes the expensive blur.
+   */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .glow-blue {
@@ -193,11 +194,13 @@
 
 .card-glow::after {
   content: "";
+
   position: absolute;
   inset: 0;
   z-index: -1;
 
   border-radius: inherit;
+
   opacity: 0;
   pointer-events: none;
 
@@ -207,7 +210,7 @@
     transparent 42%
   );
 
-  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .card-glow:hover::after {
@@ -221,15 +224,14 @@
 
 .section-glow::before {
   content: "";
-  position: absolute;
 
+  position: absolute;
   left: 50%;
   top: 50%;
+  z-index: -1;
 
   width: min(900px, 100%);
   height: 420px;
-
-  z-index: -1;
 
   transform: translate(-50%, -50%);
 
@@ -297,58 +299,73 @@
    ========================================================= */
 
 /*
- * Preserve the premium desktop effects while reducing
- * expensive rendering work on smaller touch devices.
+ * Mobile is intentionally treated as a lighter rendering mode.
  *
- * We intentionally do NOT remove the visual identity.
+ * The goal is NOT to make the website look flat.
+ * The goal is to remove expensive GPU work from the initial
+ * mobile render while preserving the ZYVORIS visual language.
  */
+
 @media (max-width: 767px) {
   /*
-   * Backdrop blur is one of the more expensive effects on
-   * lower-powered mobile GPUs. Reduce it rather than removing
-   * glass styling completely.
+   * Disable expensive backdrop blur.
+   *
+   * The translucent background + border still preserves the
+   * glass appearance without forcing the browser to continuously
+   * blur everything behind each card.
    */
   .glass {
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   /*
-   * Keep card glow visually present but cheaper on mobile.
+   * Remove cursor-following card glow on mobile.
+   * Touch devices do not benefit from this interaction.
    */
   .card-glow::after {
     display: none;
   }
 
   /*
-   * Large ambient section glows can be expensive to paint.
-   * Keep the glow but reduce its size and intensity.
+   * Reduce the large ambient section glow.
    */
   .section-glow::before {
-    width: min(650px, 130%);
-    height: 280px;
+    width: 520px;
+    height: 220px;
+
     background: radial-gradient(
       ellipse,
-      rgba(47, 125, 255, 0.055),
+      rgba(47, 125, 255, 0.04),
       transparent 68%
     );
   }
 
   /*
-   * Reduce continuous animation workload on mobile.
-   * These animations are decorative and should never compete
-   * with content rendering or scrolling.
+   * Decorative continuous animations are slowed down.
+   * They remain available without competing heavily with scrolling.
    */
   .animate-gradient {
-    animation-duration: 12s;
+    animation-duration: 14s;
   }
 
   .animate-float {
-    animation-duration: 10s;
+    animation-duration: 12s;
   }
 
   .animate-pulse-glow {
-    animation-duration: 5s;
+    animation-duration: 6s;
+  }
+
+  /*
+   * Prevent unnecessary transition work on elements that
+   * are commonly interacted with during scrolling.
+   */
+  button,
+  a {
+    transition-duration: 0.2s;
   }
 }
 
@@ -356,18 +373,25 @@
    TOUCH DEVICES
    ========================================================= */
 
-/*
- * Hover-only effects should not create unnecessary work on
- * touch devices where hover states are not meaningful.
- */
 @media (hover: none) {
+  /*
+   * Touch devices should never run hover-only visual effects.
+   */
   .card-glow::after {
-    opacity: 0 !important;
+    display: none !important;
+  }
+
+  /*
+   * Disable decorative hover transforms on touch devices.
+   * This avoids sticky hover states on mobile browsers.
+   */
+  .group:hover {
+    transform: none;
   }
 }
 
 /* =========================================================
-   ACCESSIBILITY / REDUCED MOTION
+   LOW-POWER / REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -409,4 +433,58 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(47, 125, 255, 0.55);
+}
+
+/* =========================================================
+   MOBILE SAFETY
+   ========================================================= */
+
+/*
+ * Prevent accidental horizontal overflow from large decorative
+ * elements, long text, or animated components.
+ */
+@media (max-width: 767px) {
+  body,
+  main,
+  section {
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    overflow-wrap: break-word;
+  }
+}
+/* =========================================================
+   LIGHTWEIGHT SECTION REVEAL
+   ========================================================= */
+
+.section-reveal {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (max-width: 767px) {
+  .section-reveal {
+    transform: translate3d(0, 12px, 0);
+    transition-duration: 0.45s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

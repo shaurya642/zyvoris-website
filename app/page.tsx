@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main
       id="main-content"
-      className="relative min-h-screen overflow-x-hidden bg-background text-foreground"
+      className="relative overflow-x-hidden bg-background text-foreground"
     >
       <Navbar />
 

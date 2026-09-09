@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 
 interface SectionRevealProps {
@@ -8,39 +8,53 @@ interface SectionRevealProps {
 }
 
 export function SectionReveal({ children }: SectionRevealProps) {
-  const prefersReducedMotion = useReducedMotion();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const element = containerRef.current;
+
+    if (!element) {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (prefersReducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -48px 0px",
+      },
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
-    <motion.div
-      initial={
-        prefersReducedMotion
-          ? false
-          : {
-              opacity: 0,
-              y: 20,
-            }
-      }
-      whileInView={{
-        opacity: 1,
-        y: 0,
-      }}
-      viewport={{
-        once: true,
-        amount: 0.16,
-        margin: "0px 0px -64px 0px",
-      }}
-      transition={
-        prefersReducedMotion
-          ? {
-              duration: 0,
-            }
-          : {
-              duration: 0.65,
-              ease: [0.22, 1, 0.36, 1],
-            }
-      }
+    <div
+      ref={containerRef}
+      className={`section-reveal ${
+        isVisible ? "section-reveal-visible" : ""
+      }`}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

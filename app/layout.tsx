@@ -20,27 +20,26 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://zyvoris.com"),
 
   title: {
-    default: "Zyvoris | Lead Response & Conversion System",
+    default: "Zyvoris | Lead Response & Conversion System for HVAC Companies",
     template: "%s | Zyvoris",
   },
 
   description:
-    "Zyvoris helps roofing and service businesses turn more inquiries and missed calls into booked opportunities with faster response, lead qualification, follow-up, appointment booking, and lead management.",
+    "ZYVORIS helps HVAC companies turn more of the leads they already generate into booked jobs through fast response, lead qualification, follow-up, missed-call recovery, appointment booking, CRM updates, and team notifications.",
 
   keywords: [
-    "Lead Response System",
-    "Lead Conversion System",
-    "Lead Qualification",
-    "Automated Lead Follow Up",
-    "Appointment Booking",
-    "CRM Automation",
-    "Speed to Lead",
-    "Missed Call Response",
-    "Missed Call Recovery",
-    "Roofing Lead Response",
-    "Roofing Lead Management",
-    "Roofing Automation",
-    "Service Business Automation",
+    "HVAC Lead Response",
+    "HVAC Lead Conversion",
+    "HVAC Lead Qualification",
+    "HVAC Lead Follow Up",
+    "HVAC Appointment Booking",
+    "HVAC CRM Automation",
+    "HVAC Missed Call Recovery",
+    "HVAC Missed Call Response",
+    "HVAC Speed to Lead",
+    "HVAC Lead Management",
+    "HVAC Automation",
+    "Lead Response & Conversion System",
   ],
 
   authors: [
@@ -64,9 +63,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Zyvoris | Lead Response & Conversion System",
+    title: "Zyvoris | Lead Response & Conversion System for HVAC Companies",
     description:
-      "From new lead to booked appointment. Respond faster, qualify leads, follow up consistently, recover missed-call opportunities, and keep your lead workflow organized.",
+      "Turn more of the leads your HVAC company already generates into booked jobs. Respond faster, qualify leads, recover missed calls, follow up consistently, and move ready prospects toward appointments.",
     url: "https://zyvoris.com",
     siteName: "Zyvoris",
     locale: "en_US",
@@ -75,9 +74,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Zyvoris | Lead Response & Conversion System",
+    title: "Zyvoris | Lead Response & Conversion System for HVAC Companies",
     description:
-      "From new lead to booked appointment. Respond faster, qualify, follow up, book, and recover missed-call opportunities.",
+      "Help your HVAC company turn more existing leads into booked jobs through fast response, qualification, follow-up, missed-call recovery, booking, and lead management.",
   },
 
   icons: {
@@ -115,7 +114,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${manrope.variable} ${geistMono.variable} scroll-smooth bg-background`}
+      className={`${manrope.variable} ${geistMono.variable} bg-background`}
     >
       <body className="min-h-screen overflow-x-hidden bg-background font-sans text-foreground antialiased selection:bg-primary/20 selection:text-white">
         {children}

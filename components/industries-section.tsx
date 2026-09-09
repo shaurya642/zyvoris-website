@@ -2,62 +2,55 @@
 
 import {
   ArrowRight,
-  Building2,
-  Droplet,
-  Hammer,
-  Home,
-  Sun,
   Wrench,
-  Zap,
+  PhoneMissed,
+  CalendarCheck,
+  ClipboardCheck,
+  RefreshCw,
+  Bell,
 } from "lucide-react";
 import { SectionReveal } from "@/components/section-reveal";
 
 const CALENDLY_URL = "https://calendly.com/shaurya-zyvoris/30min";
 
-const industries = [
-  {
-    icon: Hammer,
-    title: "Roofing",
-    description:
-      "Turn more estimate requests and missed-call opportunities into qualified conversations. Zyvoris responds quickly, gathers key details, follows up, and helps move ready homeowners toward inspections.",
-    featured: true,
-  },
+const workflowAreas = [
   {
     icon: Wrench,
-    title: "HVAC",
+    title: "HVAC Lead Response",
     description:
-      "Keep service inquiries moving while technicians are busy. Zyvoris responds, collects relevant details, qualifies the request, follows up consistently, and helps guide prospects toward booking.",
+      "Respond quickly to new HVAC inquiries while your team is busy with installations, service calls, or other jobs.",
     featured: true,
   },
   {
-    icon: Droplet,
-    title: "Plumbing",
+    icon: PhoneMissed,
+    title: "Missed-Call Recovery",
     description:
-      "Respond quickly to new service requests, gather the information your team needs, and keep follow-up consistent so opportunities do not get forgotten.",
+      "Reconnect with callers when your team cannot answer, giving missed opportunities a path back into the conversation.",
+    featured: true,
   },
   {
-    icon: Zap,
-    title: "Electrical",
+    icon: ClipboardCheck,
+    title: "Lead Qualification",
     description:
-      "Handle initial conversations when your team is unavailable, qualify new service inquiries, and keep prospects moving toward the next step.",
+      "Evaluate incoming leads using the information they provide and gather additional details when needed.",
   },
   {
-    icon: Sun,
-    title: "Solar",
+    icon: RefreshCw,
+    title: "Consistent Follow-Up",
     description:
-      "Collect the information needed to understand a prospect's fit, follow up consistently, and help qualified opportunities move toward a consultation.",
+      "Keep following up with qualified prospects who have not booked so promising opportunities do not go cold.",
   },
   {
-    icon: Home,
-    title: "Home Services",
+    icon: CalendarCheck,
+    title: "Appointment Booking",
     description:
-      "From cleaning and remodeling to other local services, connect incoming inquiries and missed calls to a consistent response, qualification, follow-up, and booking workflow.",
+      "Move ready prospects toward scheduling when the conversation reaches the right point.",
   },
   {
-    icon: Building2,
-    title: "Other Service Businesses",
+    icon: Bell,
+    title: "CRM & Team Notification",
     description:
-      "If your business depends on inbound inquiries, phone calls, and appointments, the workflow can be adapted around how your team already handles leads.",
+      "Keep lead details and status organized while making important lead events visible to your HVAC team.",
   },
 ];
 
@@ -74,74 +67,71 @@ export function IndustriesSection() {
         {/* Ambient background */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.03] blur-[130px] md:h-[600px] md:w-[600px] md:blur-[150px]"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.025] blur-[110px] max-sm:h-[260px] max-sm:w-[260px] max-sm:blur-[70px]"
         />
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           {/* Section heading */}
           <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
             <span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary sm:text-sm">
-              Industries We Serve
+              Built for HVAC
             </span>
 
             <h2
               id="industries-heading"
               className="mt-4 text-balance text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl"
             >
-              Built for businesses where every lead matters.
+              Built around how HVAC companies actually handle leads.
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
-              Zyvoris is primarily focused on roofing and HVAC businesses,
-              with workflows that can also adapt to other service businesses
-              that rely on inbound leads, calls, follow-up, and appointments.
+              ZYVORIS connects digital leads and missed calls to a consistent
+              response, qualification, follow-up, booking, and team
+              notification workflow.
             </p>
           </div>
 
-          {/* Industry cards */}
+          {/* HVAC workflow areas */}
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {industries.map((industry) => {
-              const Icon = industry.icon;
+            {workflowAreas.map((area) => {
+              const Icon = area.icon;
 
               return (
                 <article
-                  key={industry.title}
-                  className={`group relative overflow-hidden rounded-3xl border p-7 backdrop-blur-xl transition-all duration-500 sm:p-8 ${
-                    industry.featured
-                      ? "border-primary/25 bg-primary/[0.045] shadow-[0_18px_50px_rgba(47,125,255,0.08)]"
-                      : "border-white/10 bg-white/[0.025] hover:-translate-y-1 hover:border-primary/20 hover:bg-white/[0.035] hover:shadow-[0_16px_40px_rgba(0,0,0,0.18)]"
+                  key={area.title}
+                  className={`group relative overflow-hidden rounded-3xl border p-7 transition-all duration-300 sm:p-8 ${
+                    area.featured
+                      ? "border-primary/25 bg-primary/[0.045] shadow-[0_18px_50px_rgba(47,125,255,0.07)]"
+                      : "border-white/10 bg-white/[0.025] hover:-translate-y-1 hover:border-primary/20 hover:bg-white/[0.035] hover:shadow-[0_16px_40px_rgba(0,0,0,0.16)]"
                   }`}
                   style={{
                     transitionTimingFunction: EASE,
                   }}
                 >
-                  {/* Hover / featured light */}
+                  {/* Card light */}
                   <div
                     aria-hidden="true"
-                    className={`pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_top_right,rgba(47,125,255,0.075),transparent_60%)] transition-opacity duration-500 ${
-                      industry.featured
-                        ? "opacity-100"
-                        : "opacity-0 group-hover:opacity-100"
+                    className={`pointer-events-none absolute inset-0 rounded-3xl transition-opacity duration-300 ${
+                      area.featured
+                        ? "bg-[radial-gradient(circle_at_top_right,rgba(47,125,255,0.065),transparent_60%)] opacity-100"
+                        : "opacity-0 group-hover:bg-[radial-gradient(circle_at_top_right,rgba(47,125,255,0.055),transparent_60%)] group-hover:opacity-100"
                     }`}
-                    style={{
-                      transitionTimingFunction: EASE,
-                    }}
                   />
 
                   <div className="relative">
                     {/* Icon */}
                     <div
-                      className={`mb-7 flex h-14 w-14 items-center justify-center rounded-2xl border transition-all duration-500 ${
-                        industry.featured
-                          ? "border-primary/30 bg-primary/[0.11] shadow-[0_8px_24px_rgba(47,125,255,0.10)]"
-                          : "border-primary/20 bg-primary/[0.08] shadow-[0_8px_24px_rgba(47,125,255,0.07)] group-hover:-translate-y-0.5 group-hover:border-primary/30 group-hover:bg-primary/[0.11]"
+                      className={`mb-7 flex h-14 w-14 items-center justify-center rounded-2xl border transition-all duration-300 ${
+                        area.featured
+                          ? "border-primary/30 bg-primary/[0.11] shadow-[0_8px_20px_rgba(47,125,255,0.08)]"
+                          : "border-primary/20 bg-primary/[0.08] shadow-[0_8px_20px_rgba(47,125,255,0.05)] group-hover:-translate-y-0.5 group-hover:border-primary/30 group-hover:bg-primary/[0.11]"
                       }`}
                       style={{
                         transitionTimingFunction: EASE,
                       }}
                     >
                       <Icon
-                        className="h-6 w-6 text-primary transition-transform duration-500 group-hover:scale-105 group-hover:rotate-2"
+                        className="h-6 w-6 text-primary transition-transform duration-300 group-hover:scale-105"
                         style={{
                           transitionTimingFunction: EASE,
                         }}
@@ -153,18 +143,18 @@ export function IndustriesSection() {
                     <div className="max-w-xl">
                       <div className="flex flex-wrap items-center gap-3">
                         <h3 className="text-xl font-semibold tracking-tight text-white">
-                          {industry.title}
+                          {area.title}
                         </h3>
 
-                        {industry.featured && (
+                        {area.featured && (
                           <span className="rounded-full border border-primary/20 bg-primary/[0.08] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
-                            Primary Focus
+                            Core
                           </span>
                         )}
                       </div>
 
                       <p className="mt-3 text-sm leading-7 text-white/55">
-                        {industry.description}
+                        {area.description}
                       </p>
                     </div>
                   </div>
@@ -173,12 +163,12 @@ export function IndustriesSection() {
             })}
           </div>
 
-          {/* Custom workflow CTA */}
+          {/* Workflow CTA */}
           <div className="mx-auto mt-16 max-w-3xl sm:mt-20">
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.025] p-8 text-center shadow-[0_18px_50px_rgba(0,0,0,0.18)] backdrop-blur-2xl sm:p-12">
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.025] p-8 text-center shadow-[0_18px_50px_rgba(0,0,0,0.16)] backdrop-blur-xl max-sm:backdrop-blur-none sm:p-12">
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(47,125,255,0.065),transparent_60%)]"
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(47,125,255,0.055),transparent_60%)]"
               />
 
               <div className="relative">
@@ -190,22 +180,21 @@ export function IndustriesSection() {
                 </div>
 
                 <h3 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                  Your workflow can be built around your business.
+                  Your HVAC lead workflow, connected end to end.
                 </h3>
 
                 <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/55 sm:leading-8">
-                  Different businesses have different lead sources,
-                  qualification questions, follow-up timelines, and booking
-                  processes. Zyvoris is built around the workflow you already
-                  use.
+                  From the moment a digital lead arrives or a call is missed,
+                  ZYVORIS connects response, qualification, follow-up, booking,
+                  CRM updates, and team notifications into one system.
                 </p>
 
                 <a
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Book a Zyvoris strategy call"
-                  className="group mt-7 inline-flex items-center rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(47,125,255,0.20)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(47,125,255,0.27)] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  aria-label="Book a ZYVORIS strategy call"
+                  className="group mt-7 inline-flex items-center rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(47,125,255,0.20)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(47,125,255,0.25)] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   style={{
                     transitionTimingFunction: EASE,
                   }}
@@ -213,7 +202,7 @@ export function IndustriesSection() {
                   Book a Strategy Call
 
                   <ArrowRight
-                    className="ml-2 h-4 w-4 transition-transform duration-500 group-hover:translate-x-1.5"
+                    className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5"
                     style={{
                       transitionTimingFunction: EASE,
                     }}

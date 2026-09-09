@@ -24,24 +24,33 @@ export function Navbar() {
     setMobileMenuOpen(false);
   };
 
-  // Close the mobile menu when returning to desktop.
+  /*
+   * Close the mobile menu when the viewport crosses into desktop.
+   * matchMedia avoids running React state updates on every resize event.
+   */
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      if (event.matches) {
         setMobileMenuOpen(false);
       }
     };
 
-    window.addEventListener("resize", handleResize);
+    mediaQuery.addEventListener("change", handleChange);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      mediaQuery.removeEventListener("change", handleChange);
     };
   }, []);
 
-  // Allow Escape to close the mobile navigation.
+  /*
+   * Allow Escape to close the mobile navigation.
+   */
   useEffect(() => {
-    if (!mobileMenuOpen) return;
+    if (!mobileMenuOpen) {
+      return;
+    }
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -61,7 +70,7 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50">
       <nav
         aria-label="Main navigation"
-        className="mx-auto mt-3 flex w-[96%] max-w-7xl items-center justify-between rounded-2xl border border-white/10 bg-background/80 px-5 py-3.5 shadow-[0_12px_36px_rgba(0,0,0,0.24)] backdrop-blur-2xl transition-all duration-500 sm:mt-4 sm:px-7 sm:py-4 lg:px-9"
+        className="mx-auto mt-3 flex w-[96%] max-w-7xl items-center justify-between rounded-2xl border border-white/10 bg-background/85 px-5 py-3.5 shadow-[0_12px_36px_rgba(0,0,0,0.24)] backdrop-blur-xl sm:mt-4 sm:px-7 sm:py-4 lg:px-9 max-sm:backdrop-blur-none"
         style={{ transitionTimingFunction: EASE }}
       >
         {/* Logo */}
@@ -74,7 +83,7 @@ export function Navbar() {
             src="/logo.svg"
             alt="Zyvoris"
             draggable={false}
-            className="h-8 w-auto select-none transition-transform duration-500 group-hover:scale-[1.03]"
+            className="h-8 w-auto select-none transition-transform duration-300 group-hover:scale-[1.03]"
             style={{ transitionTimingFunction: EASE }}
           />
         </Link>
@@ -85,14 +94,14 @@ export function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="group relative rounded-md py-1 text-sm font-medium text-white/60 transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+              className="group relative rounded-md py-1 text-sm font-medium text-white/60 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
               style={{ transitionTimingFunction: EASE }}
             >
               {item.name}
 
               <span
                 aria-hidden="true"
-                className="absolute -bottom-1 left-0 h-px w-0 bg-primary transition-all duration-300 group-hover:w-full"
+                className="absolute -bottom-1 left-0 h-px w-0 bg-primary transition-[width] duration-200 group-hover:w-full"
                 style={{ transitionTimingFunction: EASE }}
               />
             </Link>
@@ -103,7 +112,7 @@ export function Navbar() {
         <div className="hidden lg:flex">
           <Button
             asChild
-            className="group h-auto rounded-xl bg-primary px-6 py-2.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(47,125,255,0.20)] transition-all duration-500 hover:-translate-y-0.5 hover:bg-primary hover:shadow-[0_16px_34px_rgba(47,125,255,0.26)] active:translate-y-0 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="group h-auto rounded-xl bg-primary px-6 py-2.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(47,125,255,0.20)] transition-[transform,box-shadow,background-color] duration-300 hover:-translate-y-0.5 hover:bg-primary hover:shadow-[0_16px_34px_rgba(47,125,255,0.26)] active:translate-y-0 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             style={{ transitionTimingFunction: EASE }}
           >
             <a
@@ -116,7 +125,7 @@ export function Navbar() {
               Book a Strategy Call
 
               <ArrowRight
-                className="ml-2 h-4 w-4 transition-transform duration-500 group-hover:translate-x-1.5"
+                className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5"
                 style={{ transitionTimingFunction: EASE }}
                 aria-hidden="true"
               />
@@ -135,8 +144,8 @@ export function Navbar() {
           }
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-navigation"
-          onClick={() => setMobileMenuOpen((prev) => !prev)}
-          className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-white/80 transition-all duration-300 hover:border-primary/25 hover:bg-primary/[0.07] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:hidden"
+          onClick={() => setMobileMenuOpen((previous) => !previous)}
+          className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-white/80 transition-[background-color,border-color,color,transform] duration-200 hover:border-primary/25 hover:bg-primary/[0.07] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:hidden"
           style={{ transitionTimingFunction: EASE }}
         >
           {mobileMenuOpen ? (
@@ -151,14 +160,14 @@ export function Navbar() {
       <div
         id="mobile-navigation"
         aria-hidden={!mobileMenuOpen}
-        className={`overflow-hidden transition-all duration-500 lg:hidden ${
+        className={`overflow-hidden transition-[max-height,opacity] duration-300 lg:hidden ${
           mobileMenuOpen
             ? "max-h-[520px] opacity-100"
             : "pointer-events-none max-h-0 opacity-0"
         }`}
         style={{ transitionTimingFunction: EASE }}
       >
-        <div className="mx-auto mt-2 w-[96%] max-w-7xl rounded-2xl border border-white/10 bg-background/90 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.26)] backdrop-blur-2xl sm:mt-3 sm:p-5">
+        <div className="mx-auto mt-2 w-[96%] max-w-7xl rounded-2xl border border-white/10 bg-background/95 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.26)] sm:mt-3 sm:p-5">
           <div className="space-y-1">
             {navigation.map((item) => (
               <Link
@@ -166,13 +175,13 @@ export function Navbar() {
                 href={item.href}
                 onClick={closeMobileMenu}
                 tabIndex={mobileMenuOpen ? 0 : -1}
-                className="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-white/65 transition-all duration-300 hover:bg-white/[0.04] hover:text-white focus-visible:bg-white/[0.04] focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                className="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-white/65 transition-[background-color,color] duration-200 hover:bg-white/[0.04] hover:text-white focus-visible:bg-white/[0.04] focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                 style={{ transitionTimingFunction: EASE }}
               >
                 <span>{item.name}</span>
 
                 <ArrowRight
-                  className="h-4 w-4 text-white/25 transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary"
+                  className="h-4 w-4 text-white/25 transition-[transform,color] duration-200 group-hover:translate-x-1 group-hover:text-primary"
                   style={{ transitionTimingFunction: EASE }}
                   aria-hidden="true"
                 />
@@ -183,7 +192,7 @@ export function Navbar() {
           <div className="mt-4 border-t border-white/[0.08] pt-4">
             <Button
               asChild
-              className="group h-auto w-full rounded-xl bg-primary py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(47,125,255,0.20)] transition-all duration-500 hover:bg-primary hover:shadow-[0_18px_36px_rgba(47,125,255,0.27)] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="group h-auto w-full rounded-xl bg-primary py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(47,125,255,0.20)] transition-[box-shadow,background-color] duration-300 hover:bg-primary hover:shadow-[0_18px_36px_rgba(47,125,255,0.27)] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               style={{ transitionTimingFunction: EASE }}
             >
               <a
@@ -198,7 +207,7 @@ export function Navbar() {
                   Book a Strategy Call
 
                   <ArrowRight
-                    className="ml-2 h-4 w-4 transition-transform duration-500 group-hover:translate-x-1.5"
+                    className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5"
                     style={{ transitionTimingFunction: EASE }}
                     aria-hidden="true"
                   />
