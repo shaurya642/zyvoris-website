@@ -85,14 +85,14 @@ export function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="group relative rounded-md py-1 text-sm font-medium text-white/60 transition-colors duration-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+              className="group relative rounded-md py-1 text-sm font-medium text-white/60 transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
               style={{ transitionTimingFunction: EASE }}
             >
               {item.name}
 
               <span
                 aria-hidden="true"
-                className="absolute -bottom-1 left-0 h-px w-0 bg-primary transition-all duration-400 group-hover:w-full"
+                className="absolute -bottom-1 left-0 h-px w-0 bg-primary transition-all duration-300 group-hover:w-full"
                 style={{ transitionTimingFunction: EASE }}
               />
             </Link>
@@ -111,6 +111,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Book a Zyvoris strategy call"
+              className="flex items-center"
             >
               Book a Strategy Call
 
@@ -135,7 +136,7 @@ export function Navbar() {
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMobileMenuOpen((prev) => !prev)}
-          className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-white/80 transition-all duration-400 hover:border-primary/25 hover:bg-primary/[0.07] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-white/80 transition-all duration-300 hover:border-primary/25 hover:bg-primary/[0.07] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:hidden"
           style={{ transitionTimingFunction: EASE }}
         >
           {mobileMenuOpen ? (
@@ -149,6 +150,7 @@ export function Navbar() {
       {/* Mobile navigation */}
       <div
         id="mobile-navigation"
+        aria-hidden={!mobileMenuOpen}
         className={`overflow-hidden transition-all duration-500 lg:hidden ${
           mobileMenuOpen
             ? "max-h-[520px] opacity-100"
@@ -192,13 +194,15 @@ export function Navbar() {
                 tabIndex={mobileMenuOpen ? 0 : -1}
                 aria-label="Book a Zyvoris strategy call"
               >
-                Book a Strategy Call
+                <span className="flex items-center justify-center">
+                  Book a Strategy Call
 
-                <ArrowRight
-                  className="ml-2 h-4 w-4 transition-transform duration-500 group-hover:translate-x-1.5"
-                  style={{ transitionTimingFunction: EASE }}
-                  aria-hidden="true"
-                />
+                  <ArrowRight
+                    className="ml-2 h-4 w-4 transition-transform duration-500 group-hover:translate-x-1.5"
+                    style={{ transitionTimingFunction: EASE }}
+                    aria-hidden="true"
+                  />
+                </span>
               </a>
             </Button>
           </div>

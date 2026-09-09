@@ -12,12 +12,18 @@ export function SectionReveal({ children }: SectionRevealProps) {
 
   return (
     <motion.div
-      initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
-      whileInView={
+      initial={
         prefersReducedMotion
-          ? { opacity: 1, y: 0 }
-          : { opacity: 1, y: 0 }
+          ? false
+          : {
+              opacity: 0,
+              y: 20,
+            }
       }
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
       viewport={{
         once: true,
         amount: 0.16,
@@ -25,9 +31,11 @@ export function SectionReveal({ children }: SectionRevealProps) {
       }}
       transition={
         prefersReducedMotion
-          ? { duration: 0 }
+          ? {
+              duration: 0,
+            }
           : {
-              duration: 0.7,
+              duration: 0.65,
               ease: [0.22, 1, 0.36, 1],
             }
       }

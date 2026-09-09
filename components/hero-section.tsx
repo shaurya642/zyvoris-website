@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   Database,
   Play,
+  PhoneMissed,
   RefreshCw,
   Zap,
 } from "lucide-react";
@@ -22,24 +23,29 @@ const workflowSteps = [
     description: "A new inquiry enters your business",
   },
   {
+    icon: PhoneMissed,
+    label: "Missed Call Recovered",
+    description: "Missed-call opportunities get a response",
+  },
+  {
     icon: Zap,
-    label: "AI Responds Instantly",
-    description: "The lead receives an immediate response",
+    label: "Fast Response",
+    description: "Leads receive an immediate response",
   },
   {
     icon: CheckCircle2,
     label: "Lead Qualified",
-    description: "AI identifies intent, fit, and readiness",
+    description: "Intent, fit, and readiness are identified",
   },
   {
     icon: RefreshCw,
-    label: "Follow-Up Automated",
-    description: "The conversation keeps moving automatically",
+    label: "Follow-Up",
+    description: "Unbooked prospects are followed up with consistently",
   },
   {
     icon: Calendar,
     label: "Appointment Booked",
-    description: "Ready prospects are guided to booking",
+    description: "Ready prospects are guided toward booking",
   },
   {
     icon: Database,
@@ -83,7 +89,9 @@ export function HeroSection() {
     }
 
     const interval = window.setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % workflowSteps.length);
+      setActiveStep(
+        (prev) => (prev + 1) % workflowSteps.length,
+      );
     }, 1800);
 
     return () => window.clearInterval(interval);
@@ -123,7 +131,7 @@ export function HeroSection() {
               </span>
 
               <span className="text-xs font-semibold uppercase tracking-[0.14em] text-primary sm:text-sm">
-                AI Lead Response &amp; Conversion System
+                Lead Response &amp; Conversion System
               </span>
             </div>
 
@@ -141,9 +149,10 @@ export function HeroSection() {
 
             {/* Supporting copy */}
             <p className="mx-auto mt-8 max-w-[630px] text-lg leading-8 text-white/60 sm:text-xl lg:mx-0">
-              Zyvoris responds to new leads instantly, qualifies them, follows
-              up automatically, and helps ready prospects book an appointment —
-              without your team chasing every inquiry manually.
+              Zyvoris helps roofing and service businesses respond faster,
+              qualify new leads, follow up consistently, recover missed-call
+              opportunities, and move ready prospects toward booked
+              appointments.
             </p>
 
             {/* CTAs */}
@@ -178,7 +187,7 @@ export function HeroSection() {
                 className="group h-auto rounded-xl border border-white/10 bg-white/[0.03] px-8 py-6 text-white backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:bg-white/[0.05] focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 style={{ transitionTimingFunction: EASE }}
               >
-                <a href="#process">
+                <a href="#process" className="flex items-center">
                   <Play
                     className="mr-2 h-4 w-4 transition-transform duration-500 group-hover:scale-105"
                     style={{ transitionTimingFunction: EASE }}
@@ -191,7 +200,7 @@ export function HeroSection() {
 
             {/* Supporting reassurance */}
             <p className="mt-6 text-sm text-white/40">
-              Built around the way your business already handles new leads.
+              Built around the way your business already handles leads.
             </p>
           </div>
 
@@ -203,7 +212,7 @@ export function HeroSection() {
             />
 
             <ol
-              aria-label="Zyvoris lead handling workflow"
+              aria-label="Zyvoris lead response and conversion workflow"
               className="relative space-y-3"
             >
               {workflowSteps.map((step, index) => {
@@ -230,7 +239,9 @@ export function HeroSection() {
                                 ? "top-full h-full opacity-0"
                                 : "-top-full h-full opacity-0"
                           }`}
-                          style={{ transitionTimingFunction: EASE }}
+                          style={{
+                            transitionTimingFunction: EASE,
+                          }}
                         />
                       </div>
                     )}
@@ -242,7 +253,9 @@ export function HeroSection() {
                           ? "border-primary/25 bg-white/[0.04] shadow-[0_12px_30px_rgba(47,125,255,0.09)]"
                           : "border-white/10 bg-white/[0.025] hover:-translate-y-0.5 hover:border-primary/20 hover:bg-white/[0.04] hover:shadow-[0_12px_26px_rgba(0,0,0,0.16)]"
                       }`}
-                      style={{ transitionTimingFunction: EASE }}
+                      style={{
+                        transitionTimingFunction: EASE,
+                      }}
                     >
                       <div
                         aria-hidden="true"
@@ -261,7 +274,9 @@ export function HeroSection() {
                               ? "border-primary/25 bg-primary/10 shadow-[0_8px_20px_rgba(47,125,255,0.10)]"
                               : "border-white/10 bg-primary/[0.04] group-hover:border-primary/25 group-hover:bg-primary/[0.08]"
                           }`}
-                          style={{ transitionTimingFunction: EASE }}
+                          style={{
+                            transitionTimingFunction: EASE,
+                          }}
                         >
                           <Icon
                             className={`h-5 w-5 text-primary transition-all duration-500 ${
@@ -269,7 +284,9 @@ export function HeroSection() {
                                 ? "scale-105"
                                 : "group-hover:scale-105 group-hover:rotate-2"
                             }`}
-                            style={{ transitionTimingFunction: EASE }}
+                            style={{
+                              transitionTimingFunction: EASE,
+                            }}
                             aria-hidden="true"
                           />
                         </div>

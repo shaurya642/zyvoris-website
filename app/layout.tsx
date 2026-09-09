@@ -20,30 +20,27 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://zyvoris.com"),
 
   title: {
-    default: "Zyvoris | AI Lead Response & Conversion System",
+    default: "Zyvoris | Lead Response & Conversion System",
     template: "%s | Zyvoris",
   },
 
   description:
-    "Zyvoris helps service businesses respond to new leads instantly, qualify them automatically, follow up consistently, book appointments, update their CRM, and keep their team informed.",
+    "Zyvoris helps roofing and service businesses turn more inquiries and missed calls into booked opportunities with faster response, lead qualification, follow-up, appointment booking, and lead management.",
 
   keywords: [
-    "AI Lead Response",
     "Lead Response System",
+    "Lead Conversion System",
     "Lead Qualification",
     "Automated Lead Follow Up",
     "Appointment Booking",
     "CRM Automation",
     "Speed to Lead",
+    "Missed Call Response",
+    "Missed Call Recovery",
+    "Roofing Lead Response",
+    "Roofing Lead Management",
+    "Roofing Automation",
     "Service Business Automation",
-    "Roofing",
-    "HVAC",
-    "Plumbing",
-    "Electrical",
-    "Solar",
-    "Real Estate",
-    "Marketing Agencies",
-    "Medical Clinics",
   ],
 
   authors: [
@@ -67,9 +64,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Zyvoris | AI Lead Response & Conversion System",
+    title: "Zyvoris | Lead Response & Conversion System",
     description:
-      "From new lead to booked appointment — automatically. Respond faster, qualify leads, follow up consistently, and keep your CRM updated.",
+      "From new lead to booked appointment. Respond faster, qualify leads, follow up consistently, recover missed-call opportunities, and keep your lead workflow organized.",
     url: "https://zyvoris.com",
     siteName: "Zyvoris",
     locale: "en_US",
@@ -78,9 +75,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Zyvoris | AI Lead Response & Conversion System",
+    title: "Zyvoris | Lead Response & Conversion System",
     description:
-      "From new lead to booked appointment — automatically.",
+      "From new lead to booked appointment. Respond faster, qualify, follow up, book, and recover missed-call opportunities.",
   },
 
   icons: {

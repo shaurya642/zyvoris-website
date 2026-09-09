@@ -1,7 +1,13 @@
 "use client";
 
-import { ArrowRight, Bot, Calendar, Database, Zap } from "lucide-react";
-import { useState } from "react";
+import {
+  ArrowRight,
+  Bot,
+  Calendar,
+  Database,
+  PhoneMissed,
+  Zap,
+} from "lucide-react";
 import {
   Card,
   CardContent,
@@ -14,9 +20,9 @@ import { SectionReveal } from "@/components/section-reveal";
 const services = [
   {
     icon: Zap,
-    title: "Instant Lead Engagement",
+    title: "Instant Lead Response",
     description:
-      "Respond to new inquiries immediately so prospects aren't left waiting while your team is busy. Conversations can be tailored to the source, context, and information already provided by the lead.",
+      "Respond to new inquiries quickly, even when your team is busy on jobs. Conversations can be tailored to the lead source, context, and information already provided.",
     features: [
       "Immediate lead response",
       "Personalized conversations",
@@ -24,36 +30,47 @@ const services = [
     ],
   },
   {
-    icon: Bot,
-    title: "AI-Assisted Follow-Ups",
+    icon: PhoneMissed,
+    title: "Missed-Call Recovery",
     description:
-      "Keep conversations moving after the first response with follow-up workflows that help prevent qualified opportunities from going cold or getting forgotten.",
+      "Turn missed calls into follow-up opportunities. When your team cannot answer, the workflow can help reconnect with the caller and move the conversation toward the right next step.",
     features: [
-      "Automated follow-up sequences",
-      "Context-aware messaging",
-      "Consistent lead nurturing",
+      "Missed-call follow-up",
+      "Fast re-engagement",
+      "Opportunity recovery",
     ],
   },
   {
-    icon: Database,
-    title: "CRM & Lead Management",
+    icon: Bot,
+    title: "Lead Qualification & Follow-Up",
     description:
-      "Keep lead information organized as conversations happen. Qualification details, statuses, and important lead activity can be routed back into the systems your team already uses.",
+      "Evaluate incoming leads using the information they provide, gather additional details when needed, and keep following up with qualified prospects who haven’t booked.",
     features: [
-      "CRM synchronization",
-      "Lead status updates",
-      "Structured lead information",
+      "Qualification questions",
+      "Automated follow-up sequences",
+      "Context-aware messaging",
     ],
   },
   {
     icon: Calendar,
     title: "Appointment Booking",
     description:
-      "When a lead is ready for the next step, the system can guide them toward scheduling instead of relying on your team to manually coordinate every appointment.",
+      "When a prospect is ready, guide them toward scheduling without relying on your team to manually coordinate every appointment.",
     features: [
       "Calendar integration",
       "Qualification-based booking",
       "Automated scheduling flow",
+    ],
+  },
+  {
+    icon: Database,
+    title: "CRM & Lead Management",
+    description:
+      "Keep conversations, qualification details, statuses, and lead activity organized inside the systems your team already uses.",
+    features: [
+      "CRM synchronization",
+      "Lead status updates",
+      "Structured lead information",
     ],
   },
 ];
@@ -61,8 +78,6 @@ const services = [
 const EASE = "cubic-bezier(0.22,1,0.36,1)";
 
 export function ServicesSection() {
-  const [reducedMotion, setReducedMotion] = useState(false);
-
   return (
     <SectionReveal>
       <section
@@ -92,29 +107,27 @@ export function ServicesSection() {
               id="services-heading"
               className="mt-4 text-balance text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl"
             >
-              Everything between a new lead and the next step.
+              Everything between a new lead and a booked appointment.
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
-              Zyvoris connects response, qualification, follow-up, lead
-              management, and appointment booking into one workflow built
-              around how your business already operates.
+              From the first response to qualification, missed-call recovery,
+              follow-up, booking, and lead management, Zyvoris connects the
+              pieces into one workflow built around your business.
             </p>
           </div>
 
           {/* Services */}
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:gap-6">
-            {services.map((service) => {
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6 lg:gap-6">
+            {services.map((service, index) => {
               const Icon = service.icon;
+              const isPrimary = index === 0 || index === 1;
 
               return (
                 <Card
                   key={service.title}
                   onMouseMove={(event) => {
-                    if (reducedMotion) return;
-
                     const card = event.currentTarget;
-
                     const rect = card.getBoundingClientRect();
 
                     card.style.setProperty(
@@ -127,7 +140,11 @@ export function ServicesSection() {
                       `${event.clientY - rect.top}px`,
                     );
                   }}
-                  className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.025] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-primary/20 hover:bg-white/[0.035] hover:shadow-[0_18px_44px_rgba(0,0,0,0.18)]"
+                  className={`group relative overflow-hidden rounded-3xl backdrop-blur-xl transition-all duration-500 ${
+                    isPrimary
+                      ? "border-primary/20 bg-primary/[0.035] hover:border-primary/30 hover:bg-primary/[0.045] hover:shadow-[0_18px_44px_rgba(47,125,255,0.08)] lg:col-span-3"
+                      : "border-white/10 bg-white/[0.025] hover:-translate-y-1 hover:border-primary/20 hover:bg-white/[0.035] hover:shadow-[0_18px_44px_rgba(0,0,0,0.18)] lg:col-span-2"
+                  }`}
                   style={{
                     transitionTimingFunction: EASE,
                   }}
@@ -153,7 +170,11 @@ export function ServicesSection() {
                   <CardHeader className="relative pb-4">
                     <div className="flex items-center gap-4">
                       <div
-                        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-primary/[0.08] shadow-[0_8px_22px_rgba(47,125,255,0.07)] transition-all duration-500 group-hover:-translate-y-0.5 group-hover:border-primary/30 group-hover:bg-primary/[0.11]"
+                        className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border transition-all duration-500 ${
+                          isPrimary
+                            ? "border-primary/25 bg-primary/[0.10] shadow-[0_8px_22px_rgba(47,125,255,0.08)]"
+                            : "border-primary/20 bg-primary/[0.08] shadow-[0_8px_22px_rgba(47,125,255,0.07)]"
+                        } group-hover:-translate-y-0.5 group-hover:border-primary/30 group-hover:bg-primary/[0.11]`}
                         style={{
                           transitionTimingFunction: EASE,
                         }}
@@ -206,6 +227,14 @@ export function ServicesSection() {
                 </Card>
               );
             })}
+          </div>
+
+          {/* Bottom positioning statement */}
+          <div className="mx-auto mt-12 max-w-2xl text-center sm:mt-14">
+            <p className="text-sm leading-7 text-white/35">
+              Response, qualification, follow-up, booking, and lead management
+              work together as one system — not as disconnected tools.
+            </p>
           </div>
         </div>
       </section>

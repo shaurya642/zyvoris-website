@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy | Zyvoris",
   description:
-    "Privacy Policy for Zyvoris AI-powered lead response and follow-up systems.",
+    "Privacy Policy for Zyvoris and its Lead Response & Conversion Systems.",
 };
 
 const sections = [
@@ -13,34 +13,77 @@ const sections = [
     number: "01",
     title: "Information We Collect",
     content: (
-      <p>
-        We collect information you provide directly to us, such as when you
-        fill out a form, schedule a consultation, or communicate with us. This
-        may include your name, email address, phone number, company name, and
-        any other information you choose to provide.
-      </p>
+      <>
+        <p>
+          We may collect information you provide directly to us when you
+          contact Zyvoris, submit a form, schedule a strategy call, or
+          communicate with us. This may include your name, email address, phone
+          number, company name, and any other information you choose to
+          provide.
+        </p>
+
+        <p className="mt-4">
+          We may also collect limited technical information when you use our
+          website, such as information related to your device, browser, IP
+          address, and how you interact with the website, where applicable.
+        </p>
+      </>
     ),
   },
   {
     number: "02",
     title: "How We Use Your Information",
     content: (
-      <p>
-        We use the information we collect to provide, maintain, and improve our
-        services, communicate with you about our services, and respond to your
-        inquiries and requests.
-      </p>
+      <>
+        <p>
+          We use information we collect to operate and improve the Zyvoris
+          website, respond to inquiries, communicate with prospective
+          customers, schedule consultations, and provide our services.
+        </p>
+
+        <p className="mt-4">
+          Our services include Lead Response &amp; Conversion Systems designed
+          to help businesses respond to new leads, qualify opportunities,
+          follow up with prospects, move qualified prospects toward
+          appointments, manage lead information, notify team members, and
+          respond to missed-call opportunities.
+        </p>
+
+        <p className="mt-4">
+          Depending on how a customer configures and uses our services, Zyvoris
+          may also process information relating to that customer's leads or
+          contacts in order to provide the requested services.
+        </p>
+      </>
     ),
   },
   {
     number: "03",
     title: "Information Sharing",
     content: (
-      <p>
-        We do not sell, trade, or otherwise transfer your personal information
-        to third parties without your consent, except as necessary to provide
-        our services or as required by law.
-      </p>
+      <>
+        <p>
+          We do not sell or rent personal information for monetary
+          consideration. We may share information when reasonably necessary to
+          operate our website, provide our services, communicate with you, or
+          comply with applicable legal obligations.
+        </p>
+
+        <p className="mt-4">
+          Depending on how our services are configured, information may be
+          processed through third-party service providers, platforms, or tools
+          that support functions such as hosting, communications, scheduling,
+          lead management, automation, or other service operations.
+        </p>
+
+        <p className="mt-4">
+          We do not claim ownership of information that a customer processes
+          through its own business systems. Customers are responsible for
+          ensuring that their use of our services and the information they
+          provide to us is appropriate for their own business and legal
+          requirements.
+        </p>
+      </>
     ),
   },
   {
@@ -48,9 +91,64 @@ const sections = [
     title: "Data Security",
     content: (
       <p>
-        We implement appropriate technical and organizational measures to
-        protect your personal information against unauthorized access,
-        alteration, disclosure, or destruction.
+        We take reasonable measures designed to protect information against
+        unauthorized access, alteration, disclosure, or destruction. However,
+        no method of transmission or electronic storage can be guaranteed to
+        be completely secure, and we cannot guarantee absolute security of
+        information.
+      </p>
+    ),
+  },
+  {
+    number: "05",
+    title: "Data Retention",
+    content: (
+      <p>
+        We retain information for as long as reasonably necessary for the
+        purposes for which it was collected, including providing services,
+        maintaining business records, resolving disputes, enforcing
+        agreements, and meeting applicable legal or operational requirements.
+        The appropriate retention period may vary depending on the type of
+        information and how it is used.
+      </p>
+    ),
+  },
+  {
+    number: "06",
+    title: "Cookies & Website Technologies",
+    content: (
+      <p>
+        Our website may use cookies or similar technologies where necessary
+        for website functionality, security, analytics, or improving the user
+        experience. The technologies used may change as the website and its
+        services evolve. Where applicable, your browser or device settings may
+        provide options for managing certain cookies or similar technologies.
+      </p>
+    ),
+  },
+  {
+    number: "07",
+    title: "Your Choices",
+    content: (
+      <p>
+        You may contact us if you have questions about personal information
+        that you have provided to Zyvoris or if you would like to request
+        information about how it is handled. Depending on the circumstances and
+        applicable law, we may be able to assist with requests concerning your
+        personal information.
+      </p>
+    ),
+  },
+  {
+    number: "08",
+    title: "Changes to This Policy",
+    content: (
+      <p>
+        We may update this Privacy Policy from time to time as our website,
+        services, or practices change. When we make changes, we will update
+        the "Last updated" date shown on this page. We encourage you to review
+        this policy periodically for the latest information about our privacy
+        practices.
       </p>
     ),
   },
@@ -82,7 +180,10 @@ export default function PrivacyPage() {
           {/* Header */}
           <header className="mb-10 max-w-3xl sm:mb-14">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#2F7DFF]/20 bg-[#2F7DFF]/[0.08] px-3.5 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#2F7DFF]">
-              <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
+              <ShieldCheck
+                className="h-3.5 w-3.5"
+                aria-hidden="true"
+              />
               Legal
             </div>
 
@@ -92,7 +193,7 @@ export default function PrivacyPage() {
 
             <p className="mt-5 max-w-2xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
               This policy explains how Zyvoris handles information provided
-              through our website and communications.
+              through our website, communications, and services.
             </p>
 
             <div className="mt-7 flex items-center gap-3 text-sm text-white/40">
@@ -100,7 +201,7 @@ export default function PrivacyPage() {
                 aria-hidden="true"
                 className="h-px w-8 bg-white/15"
               />
-              <span>Last updated: January 2026</span>
+              <span>Last updated: September 2026</span>
             </div>
           </header>
 
@@ -145,7 +246,7 @@ export default function PrivacyPage() {
               <section className="border-t border-white/[0.08] pt-8 sm:pt-9">
                 <div className="grid gap-4 sm:grid-cols-[72px_1fr] sm:gap-8">
                   <div className="text-xs font-semibold tracking-[0.16em] text-[#2F7DFF]">
-                    05
+                    09
                   </div>
 
                   <div>
@@ -154,8 +255,8 @@ export default function PrivacyPage() {
                     </h2>
 
                     <p className="mt-4 text-[15px] leading-7 text-white/55 sm:text-base sm:leading-8">
-                      If you have any questions about this Privacy Policy,
-                      please contact us at{" "}
+                      If you have any questions about this Privacy Policy or
+                      how your information is handled, please contact us at{" "}
                       <a
                         href="mailto:shaurya@zyvoris.com"
                         className="font-medium text-[#2F7DFF] underline decoration-[#2F7DFF]/30 underline-offset-4 transition-colors duration-300 hover:text-white hover:decoration-white/40 focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7DFF]/70"

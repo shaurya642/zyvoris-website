@@ -1,21 +1,32 @@
 "use client";
 
-import { Calendar, Clock, Zap } from "lucide-react";
+import {
+  Calendar,
+  Clock,
+  PhoneMissed,
+  Zap,
+} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionReveal } from "@/components/section-reveal";
 
 const outcomes = [
   {
     icon: Zap,
-    title: "Respond Immediately",
+    title: "Respond Faster",
     description:
       "New inquiries can receive an immediate response instead of waiting for someone on your team to become available.",
+  },
+  {
+    icon: PhoneMissed,
+    title: "Recover Missed Opportunities",
+    description:
+      "Missed calls do not have to become lost leads. The workflow can help reconnect with callers and keep the opportunity moving.",
   },
   {
     icon: Clock,
     title: "Follow Up Consistently",
     description:
-      "Automated follow-up keeps conversations moving so promising opportunities don't get forgotten after the first interaction.",
+      "Automated follow-up keeps conversations moving so promising opportunities do not get forgotten after the first interaction.",
   },
   {
     icon: Calendar,
@@ -52,18 +63,19 @@ export function StatisticsSection() {
               id="why-zyvoris-heading"
               className="mt-4 text-balance text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl"
             >
-              Every lead deserves a next step.
+              Stop letting good leads go cold.
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
-              Zyvoris helps your business respond to new inquiries, maintain
-              consistent follow-up, and move qualified conversations toward
-              appointments without adding more manual work.
+              Zyvoris helps roofing, HVAC, and other service businesses
+              respond to inquiries, recover missed-call opportunities,
+              follow up consistently, and move qualified conversations toward
+              booked appointments.
             </p>
           </div>
 
           {/* Outcomes */}
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {outcomes.map((outcome) => {
               const Icon = outcome.icon;
 
@@ -84,7 +96,7 @@ export function StatisticsSection() {
                     }}
                   />
 
-                  <CardContent className="relative p-7 sm:p-8">
+                  <CardContent className="relative flex h-full flex-col p-7 sm:p-8">
                     {/* Icon */}
                     <div
                       className="flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/20 bg-primary/[0.08] shadow-[0_8px_22px_rgba(47,125,255,0.07)] transition-all duration-500 group-hover:-translate-y-0.5 group-hover:border-primary/30 group-hover:bg-primary/[0.11]"
@@ -102,7 +114,7 @@ export function StatisticsSection() {
                     </div>
 
                     {/* Content */}
-                    <div className="mt-7 space-y-3">
+                    <div className="mt-7 flex-1 space-y-3">
                       <h3 className="text-xl font-semibold tracking-tight text-white">
                         {outcome.title}
                       </h3>
@@ -130,6 +142,15 @@ export function StatisticsSection() {
                 </Card>
               );
             })}
+          </div>
+
+          {/* Bottom statement */}
+          <div className="mx-auto mt-12 max-w-2xl text-center sm:mt-14">
+            <p className="text-sm leading-7 text-white/35">
+              The goal is simple: capture more of the opportunities your
+              business is already generating and turn more of them into real
+              conversations and appointments.
+            </p>
           </div>
         </div>
       </section>

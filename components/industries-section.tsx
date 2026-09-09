@@ -2,12 +2,10 @@
 
 import {
   ArrowRight,
-  Briefcase,
   Building2,
   Droplet,
   Hammer,
   Home,
-  Stethoscope,
   Sun,
   Wrench,
   Zap,
@@ -21,55 +19,45 @@ const industries = [
     icon: Hammer,
     title: "Roofing",
     description:
-      "New estimate requests can sit unanswered while your team is on a job. Zyvoris responds to inquiries, qualifies the opportunity, and helps move ready homeowners toward an inspection.",
+      "Turn more estimate requests and missed-call opportunities into qualified conversations. Zyvoris responds quickly, gathers key details, follows up, and helps move ready homeowners toward inspections.",
+    featured: true,
   },
   {
     icon: Wrench,
     title: "HVAC",
     description:
-      "Service requests can arrive while technicians are busy. Zyvoris keeps the conversation moving by responding, collecting relevant details, and guiding qualified prospects toward booking.",
+      "Keep service inquiries moving while technicians are busy. Zyvoris responds, collects relevant details, qualifies the request, follows up consistently, and helps guide prospects toward booking.",
+    featured: true,
   },
   {
     icon: Droplet,
     title: "Plumbing",
     description:
-      "Urgent inquiries need a fast response. Zyvoris helps acknowledge new requests immediately, gather the information your team needs, and keep follow-up from being forgotten.",
+      "Respond quickly to new service requests, gather the information your team needs, and keep follow-up consistent so opportunities do not get forgotten.",
   },
   {
     icon: Zap,
     title: "Electrical",
     description:
-      "New service inquiries should not depend on someone being available to respond. Zyvoris can handle initial conversations, qualify requests, and keep the next step moving.",
+      "Handle initial conversations when your team is unavailable, qualify new service inquiries, and keep prospects moving toward the next step.",
   },
   {
     icon: Sun,
     title: "Solar",
     description:
-      "Solar inquiries often require qualification before a consultation makes sense. Zyvoris can collect relevant information, follow up with prospects, and help move qualified leads toward a meeting.",
+      "Collect the information needed to understand a prospect's fit, follow up consistently, and help qualified opportunities move toward a consultation.",
   },
   {
     icon: Home,
-    title: "Real Estate",
+    title: "Home Services",
     description:
-      "Buyer and seller inquiries can arrive at any hour. Zyvoris responds quickly, helps qualify intent, follows up consistently, and guides ready prospects toward an appointment.",
-  },
-  {
-    icon: Briefcase,
-    title: "Marketing Agencies",
-    description:
-      "Agency leads can get buried while the team is focused on client work. Zyvoris helps respond to new inquiries, qualify prospects, automate follow-up, and move conversations toward booked calls.",
-  },
-  {
-    icon: Stethoscope,
-    title: "Medical Clinics",
-    description:
-      "New patient inquiries require timely and consistent communication. Zyvoris can help handle initial lead conversations, collect relevant information, and guide appropriate inquiries toward scheduling.",
+      "From cleaning and remodeling to other local services, connect incoming inquiries and missed calls to a consistent response, qualification, follow-up, and booking workflow.",
   },
   {
     icon: Building2,
-    title: "Home Services",
+    title: "Other Service Businesses",
     description:
-      "From cleaning and remodeling to other local services, missed follow-ups can mean missed opportunities. Zyvoris connects incoming inquiries to a consistent response, qualification, follow-up, and booking workflow.",
+      "If your business depends on inbound inquiries, phone calls, and appointments, the workflow can be adapted around how your team already handles leads.",
   },
 ];
 
@@ -86,7 +74,7 @@ export function IndustriesSection() {
         {/* Ambient background */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.035] blur-[150px]"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.03] blur-[130px] md:h-[600px] md:w-[600px] md:blur-[150px]"
         />
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
@@ -100,13 +88,13 @@ export function IndustriesSection() {
               id="industries-heading"
               className="mt-4 text-balance text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl"
             >
-              Built around the way your business handles leads.
+              Built for businesses where every lead matters.
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
-              Whether you run a home service company, agency, clinic, or real
-              estate business, Zyvoris connects new inquiries to a faster, more
-              consistent lead-handling workflow.
+              Zyvoris is primarily focused on roofing and HVAC businesses,
+              with workflows that can also adapt to other service businesses
+              that rely on inbound leads, calls, follow-up, and appointments.
             </p>
           </div>
 
@@ -118,37 +106,67 @@ export function IndustriesSection() {
               return (
                 <article
                   key={industry.title}
-                  className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.025] p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-primary/20 hover:bg-white/[0.035] hover:shadow-[0_16px_40px_rgba(0,0,0,0.18)] sm:p-8"
-                  style={{ transitionTimingFunction: EASE }}
+                  className={`group relative overflow-hidden rounded-3xl border p-7 backdrop-blur-xl transition-all duration-500 sm:p-8 ${
+                    industry.featured
+                      ? "border-primary/25 bg-primary/[0.045] shadow-[0_18px_50px_rgba(47,125,255,0.08)]"
+                      : "border-white/10 bg-white/[0.025] hover:-translate-y-1 hover:border-primary/20 hover:bg-white/[0.035] hover:shadow-[0_16px_40px_rgba(0,0,0,0.18)]"
+                  }`}
+                  style={{
+                    transitionTimingFunction: EASE,
+                  }}
                 >
-                  {/* Hover light */}
+                  {/* Hover / featured light */}
                   <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_top_right,rgba(47,125,255,0.07),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                    style={{ transitionTimingFunction: EASE }}
+                    className={`pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_top_right,rgba(47,125,255,0.075),transparent_60%)] transition-opacity duration-500 ${
+                      industry.featured
+                        ? "opacity-100"
+                        : "opacity-0 group-hover:opacity-100"
+                    }`}
+                    style={{
+                      transitionTimingFunction: EASE,
+                    }}
                   />
 
                   <div className="relative">
                     {/* Icon */}
                     <div
-                      className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/20 bg-primary/[0.08] shadow-[0_8px_24px_rgba(47,125,255,0.07)] transition-all duration-500 group-hover:-translate-y-0.5 group-hover:border-primary/30 group-hover:bg-primary/[0.11]"
-                      style={{ transitionTimingFunction: EASE }}
+                      className={`mb-7 flex h-14 w-14 items-center justify-center rounded-2xl border transition-all duration-500 ${
+                        industry.featured
+                          ? "border-primary/30 bg-primary/[0.11] shadow-[0_8px_24px_rgba(47,125,255,0.10)]"
+                          : "border-primary/20 bg-primary/[0.08] shadow-[0_8px_24px_rgba(47,125,255,0.07)] group-hover:-translate-y-0.5 group-hover:border-primary/30 group-hover:bg-primary/[0.11]"
+                      }`}
+                      style={{
+                        transitionTimingFunction: EASE,
+                      }}
                     >
                       <Icon
                         className="h-6 w-6 text-primary transition-transform duration-500 group-hover:scale-105 group-hover:rotate-2"
-                        style={{ transitionTimingFunction: EASE }}
+                        style={{
+                          transitionTimingFunction: EASE,
+                        }}
                         aria-hidden="true"
                       />
                     </div>
 
                     {/* Content */}
-                    <h3 className="text-xl font-semibold tracking-tight text-white">
-                      {industry.title}
-                    </h3>
+                    <div className="max-w-xl">
+                      <div className="flex flex-wrap items-center gap-3">
+                        <h3 className="text-xl font-semibold tracking-tight text-white">
+                          {industry.title}
+                        </h3>
 
-                    <p className="mt-3 text-sm leading-7 text-white/55">
-                      {industry.description}
-                    </p>
+                        {industry.featured && (
+                          <span className="rounded-full border border-primary/20 bg-primary/[0.08] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+                            Primary Focus
+                          </span>
+                        )}
+                      </div>
+
+                      <p className="mt-3 text-sm leading-7 text-white/55">
+                        {industry.description}
+                      </p>
+                    </div>
                   </div>
                 </article>
               );
@@ -172,12 +190,14 @@ export function IndustriesSection() {
                 </div>
 
                 <h3 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                  Don&apos;t see your industry?
+                  Your workflow can be built around your business.
                 </h3>
 
                 <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/55 sm:leading-8">
-                  The workflow can be built around your existing lead sources,
-                  qualification process, follow-up needs, and booking flow.
+                  Different businesses have different lead sources,
+                  qualification questions, follow-up timelines, and booking
+                  processes. Zyvoris is built around the workflow you already
+                  use.
                 </p>
 
                 <a
@@ -186,13 +206,17 @@ export function IndustriesSection() {
                   rel="noopener noreferrer"
                   aria-label="Book a Zyvoris strategy call"
                   className="group mt-7 inline-flex items-center rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(47,125,255,0.20)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(47,125,255,0.27)] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  style={{ transitionTimingFunction: EASE }}
+                  style={{
+                    transitionTimingFunction: EASE,
+                  }}
                 >
                   Book a Strategy Call
 
                   <ArrowRight
                     className="ml-2 h-4 w-4 transition-transform duration-500 group-hover:translate-x-1.5"
-                    style={{ transitionTimingFunction: EASE }}
+                    style={{
+                      transitionTimingFunction: EASE,
+                    }}
                     aria-hidden="true"
                   />
                 </a>

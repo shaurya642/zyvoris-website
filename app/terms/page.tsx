@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms & Conditions | Zyvoris",
   description:
-    "Terms and Conditions for Zyvoris AI-powered lead response and follow-up systems.",
+    "Terms and Conditions governing the use of the Zyvoris website and Lead Response & Conversion Systems.",
 };
 
 const sections = [
@@ -14,54 +14,169 @@ const sections = [
     title: "Acceptance of Terms",
     content: (
       <p>
-        By accessing and using the Zyvoris website and services, you accept and
-        agree to be bound by the terms and provisions of this agreement. If you
-        do not agree to abide by these terms, please do not use our services.
+        By accessing or using the Zyvoris website or services, you agree to
+        these Terms &amp; Conditions. If you do not agree with these terms,
+        please do not use the website or services. If you are using our
+        services on behalf of a business or organization, you confirm that you
+        have the authority to accept these terms on its behalf.
       </p>
     ),
   },
   {
     number: "02",
-    title: "Services",
+    title: "Our Services",
     content: (
-      <p>
-        Zyvoris provides AI-powered lead response and follow-up automation
-        systems. The specific terms of service delivery will be outlined in
-        individual service agreements with clients.
-      </p>
+      <>
+        <p>
+          Zyvoris provides Lead Response &amp; Conversion Systems designed to
+          help service businesses manage opportunities after a lead or
+          customer interaction enters their accessible lead ecosystem.
+        </p>
+
+        <p className="mt-4">
+          Depending on the configuration and services selected, this may
+          include lead response, AI-assisted qualification, automated
+          follow-up, appointment booking, CRM or lead management, team
+          notifications, and missed-call response or recovery.
+        </p>
+
+        <p className="mt-4">
+          The specific services, features, integrations, implementation
+          requirements, pricing, and deliverables provided to a customer may
+          be defined in a separate service agreement or other written
+          arrangement.
+        </p>
+      </>
     ),
   },
   {
     number: "03",
-    title: "Intellectual Property",
+    title: "Customer Responsibilities",
     content: (
-      <p>
-        All content on this website, including text, graphics, logos, and
-        software, is the property of Zyvoris and is protected by intellectual
-        property laws. You may not reproduce, distribute, or create derivative
-        works without our express permission.
-      </p>
+      <>
+        <p>
+          Customers are responsible for providing accurate information,
+          maintaining appropriate access to the systems and accounts required
+          for their implementation, and using the services in accordance with
+          applicable laws and the requirements of the platforms they use.
+        </p>
+
+        <p className="mt-4">
+          Customers are also responsible for the leads, contacts, messages,
+          content, and other information they provide to or process through
+          their configured systems. Zyvoris does not guarantee that every lead
+          or missed call will result in a response, conversation, appointment,
+          sale, or other business outcome.
+        </p>
+      </>
     ),
   },
   {
     number: "04",
-    title: "Limitation of Liability",
+    title: "Acceptable Use",
     content: (
-      <p>
-        Zyvoris shall not be liable for any indirect, incidental, special,
-        consequential, or punitive damages resulting from your use of or
-        inability to use our services.
-      </p>
+      <>
+        <p>
+          You agree not to use the Zyvoris website or services for unlawful,
+          fraudulent, abusive, deceptive, or unauthorized activities.
+        </p>
+
+        <p className="mt-4">
+          You must not attempt to interfere with the operation of the services,
+          gain unauthorized access to systems or accounts, misuse information
+          belonging to other individuals or businesses, or use the services in
+          a manner that violates applicable laws, regulations, or third-party
+          platform requirements.
+        </p>
+      </>
     ),
   },
   {
     number: "05",
-    title: "Modifications",
+    title: "Third-Party Platforms & Integrations",
     content: (
       <p>
-        We reserve the right to modify these terms at any time. Changes will be
-        effective immediately upon posting to the website. Your continued use
-        of our services constitutes acceptance of the modified terms.
+        Zyvoris may integrate with or operate alongside third-party platforms,
+        software, communication services, CRM systems, scheduling tools, and
+        other technologies depending on the customer's setup. Those
+        third-party services may have their own terms, privacy policies,
+        limitations, availability requirements, and fees. Zyvoris is not
+        responsible for changes, interruptions, limitations, or failures
+        originating from third-party services outside our reasonable control.
+      </p>
+    ),
+  },
+  {
+    number: "06",
+    title: "Intellectual Property",
+    content: (
+      <p>
+        The Zyvoris name, branding, website content, original materials,
+        software, designs, and other intellectual property made available by
+        Zyvoris remain the property of Zyvoris or its respective licensors,
+        unless otherwise agreed in writing. You may not reproduce, distribute,
+        modify, reverse engineer, or create derivative works from Zyvoris
+        materials without appropriate authorization.
+      </p>
+    ),
+  },
+  {
+    number: "07",
+    title: "Service Availability",
+    content: (
+      <p>
+        We aim to provide reliable services, but we do not guarantee that the
+        website or services will always be available, uninterrupted, or free
+        from errors. Service availability may depend on internet connectivity,
+        third-party platforms, integrations, customer systems, and other
+        factors outside our reasonable control. We may also modify, improve,
+        suspend, or discontinue portions of the services when reasonably
+        necessary.
+      </p>
+    ),
+  },
+  {
+    number: "08",
+    title: "No Guaranteed Business Results",
+    content: (
+      <p>
+        Zyvoris provides systems intended to help businesses respond to,
+        qualify, follow up with, and move leads toward appointments more
+        consistently. However, business outcomes depend on many factors,
+        including lead quality, offer, pricing, market conditions, sales
+        processes, response configuration, customer behavior, and other
+        circumstances. We do not guarantee a specific number of leads,
+        appointments, customers, revenue, conversion rate, or other business
+        result.
+      </p>
+    ),
+  },
+  {
+    number: "09",
+    title: "Limitation of Liability",
+    content: (
+      <p>
+        To the maximum extent permitted by applicable law, Zyvoris will not be
+        responsible for indirect, incidental, special, consequential, or
+        punitive damages arising from or related to the use of the website or
+        services. This includes losses resulting from missed opportunities,
+        business interruption, loss of revenue, loss of data, or reliance on
+        third-party platforms or services, except where such limitation is not
+        permitted by applicable law.
+      </p>
+    ),
+  },
+  {
+    number: "10",
+    title: "Changes to These Terms",
+    content: (
+      <p>
+        We may update these Terms &amp; Conditions from time to time to reflect
+        changes to our website, services, or business practices. Updated terms
+        will be posted on this page with a revised "Last updated" date. Your
+        continued use of the website or services after an update may constitute
+        acceptance of the revised terms to the extent permitted by applicable
+        law.
       </p>
     ),
   },
@@ -93,7 +208,10 @@ export default function TermsPage() {
           {/* Header */}
           <header className="mb-10 max-w-3xl sm:mb-14">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#2F7DFF]/20 bg-[#2F7DFF]/[0.08] px-3.5 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#2F7DFF]">
-              <FileText className="h-3.5 w-3.5" aria-hidden="true" />
+              <FileText
+                className="h-3.5 w-3.5"
+                aria-hidden="true"
+              />
               Legal
             </div>
 
@@ -111,7 +229,7 @@ export default function TermsPage() {
                 aria-hidden="true"
                 className="h-px w-8 bg-white/15"
               />
-              <span>Last updated: January 2026</span>
+              <span>Last updated: September 2026</span>
             </div>
           </header>
 
@@ -156,7 +274,7 @@ export default function TermsPage() {
               <section className="border-t border-white/[0.08] pt-8 sm:pt-9">
                 <div className="grid gap-4 sm:grid-cols-[72px_1fr] sm:gap-8">
                   <div className="text-xs font-semibold tracking-[0.16em] text-[#2F7DFF]">
-                    06
+                    11
                   </div>
 
                   <div>
@@ -165,7 +283,7 @@ export default function TermsPage() {
                     </h2>
 
                     <p className="mt-4 text-[15px] leading-7 text-white/55 sm:text-base sm:leading-8">
-                      For any questions regarding these Terms &amp; Conditions,
+                      If you have questions about these Terms &amp; Conditions,
                       please contact us at{" "}
                       <a
                         href="mailto:shaurya@zyvoris.com"

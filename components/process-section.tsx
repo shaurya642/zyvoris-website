@@ -15,35 +15,35 @@ const steps = [
     icon: Search,
     title: "Discovery",
     description:
-      "We map how new leads enter your business, how your team responds today, and where inquiries are getting delayed or missed.",
+      "We map how leads and calls enter your business, how your team responds today, and where inquiries or missed calls are falling through.",
   },
   {
     number: "02",
     icon: Cpu,
     title: "Strategy",
     description:
-      "We design the lead-handling workflow around your qualification process, follow-up needs, booking flow, and existing tools.",
+      "We design the workflow around your lead sources, qualification criteria and conversational questions when needed, missed-call recovery, follow-up process, booking flow, and existing tools.",
   },
   {
     number: "03",
     icon: Wrench,
     title: "Build",
     description:
-      "We build and connect the system so new leads can be responded to, qualified, followed up with, and moved toward the right next step.",
+      "We build and connect the system so new leads and missed-call opportunities can be responded to, qualified, followed up with, and moved toward the right next step.",
   },
   {
     number: "04",
     icon: Rocket,
     title: "Launch",
     description:
-      "We test the workflow, verify each connection, and deploy the system so it fits into the way your team already works.",
+      "We test conversations, automations, integrations, routing, and booking flows before deploying the system into your existing workflow.",
   },
   {
     number: "05",
     icon: TrendingUp,
     title: "Optimize",
     description:
-      "Once the system is running, we identify opportunities to refine conversations, follow-ups, routing, and the overall lead-handling workflow.",
+      "Once live, we refine response flows, qualification, follow-ups, missed-call recovery, routing, and booking based on how the system performs in your business.",
   },
 ];
 
@@ -74,13 +74,13 @@ export function ProcessSection() {
               id="process-heading"
               className="mt-4 text-balance text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl"
             >
-              A system built around your workflow.
+              From your current workflow to a better lead system.
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
               We start with how your business handles leads today, then build
-              the response, qualification, follow-up, and booking workflow
-              around it.
+              the response, qualification, follow-up, missed-call recovery,
+              and booking workflow around it.
             </p>
           </div>
 
@@ -168,6 +168,14 @@ export function ProcessSection() {
                 );
               })}
             </ol>
+          </div>
+
+          {/* Bottom reassurance */}
+          <div className="mx-auto mt-12 max-w-2xl text-center sm:mt-14">
+            <p className="text-sm leading-7 text-white/35">
+              No need to replace everything you already use. The system is
+              designed to fit around your existing tools, team, and lead flow.
+            </p>
           </div>
         </div>
       </section>

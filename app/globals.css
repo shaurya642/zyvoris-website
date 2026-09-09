@@ -103,7 +103,9 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* ---------------- Base ---------------- */
+/* =========================================================
+   BASE
+   ========================================================= */
 
 @layer base {
   * {
@@ -121,6 +123,7 @@
     font-family: "Manrope", sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
     text-rendering: optimizeLegibility;
+
     overflow-x: hidden;
     min-height: 100vh;
   }
@@ -135,18 +138,24 @@
     -webkit-user-drag: none;
   }
 
+  /*
+   * Keep interactive transitions lightweight globally.
+   *
+   * Individual components can still override these durations
+   * when a more premium interaction is intentional.
+   */
   button,
   a,
   input,
   textarea,
   select {
     transition:
-      background-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-      color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-      box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   *:focus-visible {
@@ -155,11 +164,14 @@
   }
 }
 
-/* ---------------- Premium Utilities ---------------- */
+/* =========================================================
+   PREMIUM UTILITIES
+   ========================================================= */
 
 .glass {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
+
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
@@ -184,6 +196,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
+
   border-radius: inherit;
   opacity: 0;
   pointer-events: none;
@@ -209,12 +222,17 @@
 .section-glow::before {
   content: "";
   position: absolute;
+
   left: 50%;
   top: 50%;
+
   width: min(900px, 100%);
   height: 420px;
+
   z-index: -1;
+
   transform: translate(-50%, -50%);
+
   pointer-events: none;
 
   background: radial-gradient(
@@ -224,7 +242,9 @@
   );
 }
 
-/* ---------------- Animations ---------------- */
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
 
 @keyframes gradient-shift {
   0%,
@@ -272,7 +292,83 @@
   animation: pulse-glow 3.5s ease-in-out infinite;
 }
 
-/* ---------------- Accessibility ---------------- */
+/* =========================================================
+   MOBILE PERFORMANCE
+   ========================================================= */
+
+/*
+ * Preserve the premium desktop effects while reducing
+ * expensive rendering work on smaller touch devices.
+ *
+ * We intentionally do NOT remove the visual identity.
+ */
+@media (max-width: 767px) {
+  /*
+   * Backdrop blur is one of the more expensive effects on
+   * lower-powered mobile GPUs. Reduce it rather than removing
+   * glass styling completely.
+   */
+  .glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /*
+   * Keep card glow visually present but cheaper on mobile.
+   */
+  .card-glow::after {
+    display: none;
+  }
+
+  /*
+   * Large ambient section glows can be expensive to paint.
+   * Keep the glow but reduce its size and intensity.
+   */
+  .section-glow::before {
+    width: min(650px, 130%);
+    height: 280px;
+    background: radial-gradient(
+      ellipse,
+      rgba(47, 125, 255, 0.055),
+      transparent 68%
+    );
+  }
+
+  /*
+   * Reduce continuous animation workload on mobile.
+   * These animations are decorative and should never compete
+   * with content rendering or scrolling.
+   */
+  .animate-gradient {
+    animation-duration: 12s;
+  }
+
+  .animate-float {
+    animation-duration: 10s;
+  }
+
+  .animate-pulse-glow {
+    animation-duration: 5s;
+  }
+}
+
+/* =========================================================
+   TOUCH DEVICES
+   ========================================================= */
+
+/*
+ * Hover-only effects should not create unnecessary work on
+ * touch devices where hover states are not meaningful.
+ */
+@media (hover: none) {
+  .card-glow::after {
+    opacity: 0 !important;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -289,7 +385,9 @@
   }
 }
 
-/* ---------------- Scrollbar ---------------- */
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
 
 html {
   scrollbar-color: rgba(255, 255, 255, 0.12) #05060a;

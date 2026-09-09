@@ -55,14 +55,15 @@ export function CTASection() {
                 id="cta-heading"
                 className="mx-auto max-w-3xl text-4xl font-bold tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl"
               >
-                Turn more of your leads into booked appointments.
+                Turn more of your leads into booked opportunities.
               </h2>
 
               {/* Supporting copy */}
               <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
-                Book a free strategy call to walk through how your business
-                currently handles new leads and identify where Zyvoris can
-                automate response, qualification, follow-up, and booking.
+                See how Zyvoris can help your business respond faster, qualify
+                new leads, follow up consistently, recover missed-call
+                opportunities, and move more prospects toward booked
+                appointments.
               </p>
 
               {/* CTA */}
@@ -82,7 +83,7 @@ export function CTASection() {
                     Book a Strategy Call
 
                     <ArrowRight
-                      className="ml-2 h-5 w-5 transition-transform duration-500 group-hover:translate-x-1.5"
+                      className="ml-2 inline-block h-5 w-5 transition-transform duration-500 group-hover:translate-x-1.5"
                       style={{ transitionTimingFunction: EASE }}
                       aria-hidden="true"
                     />

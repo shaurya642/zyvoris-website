@@ -52,9 +52,10 @@ export function Footer() {
             </Link>
 
             <p className="max-w-sm text-sm leading-7 text-white/55">
-              Zyvoris builds AI lead response and conversion systems that help
-              businesses respond faster, qualify leads, follow up
-              automatically, and book more appointments.
+              Zyvoris builds Lead Response &amp; Conversion Systems that help
+              service businesses respond faster, qualify leads, follow up
+              consistently, recover missed-call opportunities, and move more
+              prospects toward booked appointments.
             </p>
 
             <p className="text-xs font-medium uppercase tracking-[0.22em] text-white/30">
@@ -185,7 +186,7 @@ export function Footer() {
             {/* Social links */}
             <div className="flex items-center gap-3">
               <a
-                href="https://www.instagram.com/zyvoris.ai?igsh=Mmt6dXc1bW5qeGlp&utm_source=qr"
+                href="https://www.instagram.com/zyvoris.ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Zyvoris on Instagram"
@@ -200,7 +201,7 @@ export function Footer() {
               </a>
 
               <a
-                href="https://www.facebook.com/share/1FdHA3eWKd/?mibextid=wwXIfr"
+                href="https://www.facebook.com/share/1FdHA3eWKd/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Zyvoris on Facebook"
