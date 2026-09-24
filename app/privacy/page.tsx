@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy | Zyvoris",
   description:
-    "Privacy Policy for Zyvoris and its Lead Response & Conversion Systems.",
+    "Privacy Policy for Zyvoris and its PI Lead Conversion System.",
 };
 
 const sections = [
@@ -18,8 +18,7 @@ const sections = [
           We may collect information you provide directly to us when you
           contact Zyvoris, submit a form, schedule a strategy call, or
           communicate with us. This may include your name, email address, phone
-          number, company name, and any other information you choose to
-          provide.
+          number, firm name, and any other information you choose to provide.
         </p>
 
         <p className="mt-4">
@@ -42,17 +41,20 @@ const sections = [
         </p>
 
         <p className="mt-4">
-          Our services include Lead Response &amp; Conversion Systems designed
-          to help businesses respond to new leads, qualify opportunities,
-          follow up with prospects, move qualified prospects toward
-          appointments, manage lead information, notify team members, and
-          respond to missed-call opportunities.
+          Our services include a PI Lead Conversion System designed to help
+          personal injury law firms respond to new inquiries, support intake
+          and information gathering, apply firm-defined qualification
+          criteria, follow up with prospective clients, move qualified
+          prospects toward consultations, manage lead information, notify
+          appropriate team members, and help recover missed-call
+          opportunities.
         </p>
 
         <p className="mt-4">
           Depending on how a customer configures and uses our services, Zyvoris
-          may also process information relating to that customer's leads or
-          contacts in order to provide the requested services.
+          may also process information relating to that customer's prospective
+          clients, leads, or contacts in order to provide the requested
+          services.
         </p>
       </>
     ),
@@ -73,7 +75,8 @@ const sections = [
           Depending on how our services are configured, information may be
           processed through third-party service providers, platforms, or tools
           that support functions such as hosting, communications, scheduling,
-          lead management, automation, or other service operations.
+          intake, lead management, automation, CRM connectivity, or other
+          service operations.
         </p>
 
         <p className="mt-4">
@@ -145,9 +148,9 @@ const sections = [
     content: (
       <p>
         We may update this Privacy Policy from time to time as our website,
-        services, or practices change. When we make changes, we will update
-        the "Last updated" date shown on this page. We encourage you to review
-        this policy periodically for the latest information about our privacy
+        services, or practices change. When we make changes, we will update the
+        "Last updated" date shown on this page. We encourage you to review this
+        policy periodically for the latest information about our privacy
         practices.
       </p>
     ),

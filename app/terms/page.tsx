@@ -1,11 +1,13 @@
 import Link from "next/link";
+
 import { ArrowLeft, FileText } from "lucide-react";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | Zyvoris",
   description:
-    "Terms and Conditions governing the use of the Zyvoris website and Lead Response & Conversion Systems.",
+    "Terms and Conditions governing the use of the Zyvoris website and PI Lead Conversion System.",
 };
 
 const sections = [
@@ -17,8 +19,9 @@ const sections = [
         By accessing or using the Zyvoris website or services, you agree to
         these Terms &amp; Conditions. If you do not agree with these terms,
         please do not use the website or services. If you are using our
-        services on behalf of a business or organization, you confirm that you
-        have the authority to accept these terms on its behalf.
+        services on behalf of a personal injury law firm or other business or
+        organization, you confirm that you have the authority to accept these
+        terms on its behalf.
       </p>
     ),
   },
@@ -28,23 +31,33 @@ const sections = [
     content: (
       <>
         <p>
-          Zyvoris provides Lead Response &amp; Conversion Systems designed to
-          help service businesses manage opportunities after a lead or
-          customer interaction enters their accessible lead ecosystem.
+          Zyvoris provides a PI Lead Conversion System designed to help US
+          personal injury law firms manage what happens after a digital
+          inquiry, inbound call, or missed call enters the firm's intake
+          workflow.
         </p>
 
         <p className="mt-4">
           Depending on the configuration and services selected, this may
-          include lead response, AI-assisted qualification, automated
-          follow-up, appointment booking, CRM or lead management, team
-          notifications, and missed-call response or recovery.
+          include timely lead response, intake and information gathering,
+          AI-assisted qualification based on criteria defined by the firm,
+          automated follow-up, consultation booking, CRM or lead management,
+          team notifications, and missed-call response or recovery.
+        </p>
+
+        <p className="mt-4">
+          Zyvoris does not provide legal advice, determine liability, decide
+          whether an individual has a legal case, or make legal decisions on
+          behalf of a law firm. Legal review and legal decision-making remain
+          the responsibility of the firm's attorneys and staff.
         </p>
 
         <p className="mt-4">
           The specific services, features, integrations, implementation
           requirements, pricing, and deliverables provided to a customer may
           be defined in a separate service agreement or other written
-          arrangement.
+          arrangement. Available integrations depend on the firm's existing
+          systems and workflow.
         </p>
       </>
     ),
@@ -62,11 +75,19 @@ const sections = [
         </p>
 
         <p className="mt-4">
-          Customers are also responsible for the leads, contacts, messages,
-          content, and other information they provide to or process through
-          their configured systems. Zyvoris does not guarantee that every lead
-          or missed call will result in a response, conversation, appointment,
-          sale, or other business outcome.
+          Customers are also responsible for the leads, prospective clients,
+          contacts, messages, content, and other information they provide to or
+          process through their configured systems. The firm remains
+          responsible for its intake criteria, legal review, qualification
+          decisions, communications, and use of information processed through
+          the system.
+        </p>
+
+        <p className="mt-4">
+          Zyvoris does not guarantee that every inquiry, inbound call, or
+          missed call will result in a response, conversation, qualified
+          consultation opportunity, consultation, retained client, or other
+          business outcome.
         </p>
       </>
     ),
@@ -97,12 +118,13 @@ const sections = [
     content: (
       <p>
         Zyvoris may integrate with or operate alongside third-party platforms,
-        software, communication services, CRM systems, scheduling tools, and
-        other technologies depending on the customer's setup. Those
-        third-party services may have their own terms, privacy policies,
-        limitations, availability requirements, and fees. Zyvoris is not
-        responsible for changes, interruptions, limitations, or failures
-        originating from third-party services outside our reasonable control.
+        software, communication services, CRM systems, legal practice
+        management systems, scheduling tools, and other technologies depending
+        on the firm's setup. Those third-party services may have their own
+        terms, privacy policies, limitations, availability requirements, and
+        fees. Zyvoris is not responsible for changes, interruptions,
+        limitations, or failures originating from third-party services outside
+        our reasonable control.
       </p>
     ),
   },
@@ -140,14 +162,16 @@ const sections = [
     title: "No Guaranteed Business Results",
     content: (
       <p>
-        Zyvoris provides systems intended to help businesses respond to,
-        qualify, follow up with, and move leads toward appointments more
-        consistently. However, business outcomes depend on many factors,
-        including lead quality, offer, pricing, market conditions, sales
-        processes, response configuration, customer behavior, and other
-        circumstances. We do not guarantee a specific number of leads,
-        appointments, customers, revenue, conversion rate, or other business
-        result.
+        Zyvoris provides systems intended to help personal injury law firms
+        respond to inquiries, support intake, apply firm-defined qualification
+        criteria, follow up with prospective clients, and move qualified
+        prospects toward consultations more consistently. However, business
+        outcomes depend on many factors, including inquiry quality, marketing
+        sources, firm-defined criteria, intake processes, response
+        configuration, prospective-client behavior, market conditions, and
+        other circumstances. We do not guarantee a specific number of
+        inquiries, qualified consultations, retained clients, revenue,
+        conversion rate, or other business result.
       </p>
     ),
   },

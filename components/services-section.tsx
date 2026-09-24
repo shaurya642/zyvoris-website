@@ -20,20 +20,20 @@ import { SectionReveal } from "@/components/section-reveal";
 const services = [
   {
     icon: Zap,
-    title: "Instant Lead Response",
+    title: "Fast Inquiry Response",
     description:
-      "Respond to new HVAC inquiries quickly, even when your team is busy on service calls or installations. Conversations can use the lead source, context, and information already provided.",
+      "Respond to new personal injury inquiries quickly, even when your attorneys or intake team are occupied. Conversations can use the inquiry source, context, and information already provided.",
     features: [
-      "Immediate lead response",
-      "Lead-source-aware conversations",
-      "Lead information capture",
+      "Immediate inquiry response",
+      "Inquiry-source-aware conversations",
+      "Prospective client information capture",
     ],
   },
   {
     icon: PhoneMissed,
     title: "Missed-Call Recovery",
     description:
-      "When your HVAC team cannot answer a call, the system can automatically reconnect with the caller and create a path toward qualification and booking.",
+      "When your team cannot answer a call, the system can automatically reconnect with the caller and create a path toward intake, qualification, and consultation booking.",
     features: [
       "Automatic text-back",
       "Missed-call re-engagement",
@@ -42,20 +42,20 @@ const services = [
   },
   {
     icon: Bot,
-    title: "Lead Qualification & Follow-Up",
+    title: "Intake, Qualification & Follow-Up",
     description:
-      "Evaluate incoming leads using the information they provide, gather additional details when needed, and keep following up with qualified prospects who have not booked.",
+      "Gather relevant information, apply your firm's defined intake and qualification criteria, and continue following up with qualified prospects who have not booked.",
     features: [
-      "Qualification questions",
+      "Intake questions",
+      "Firm-defined qualification criteria",
       "Automated follow-up sequences",
-      "Context-aware messaging",
     ],
   },
   {
     icon: Calendar,
-    title: "Appointment Booking",
+    title: "Consultation Booking",
     description:
-      "When a prospect is ready, guide them toward scheduling without relying on your HVAC team to manually coordinate every appointment.",
+      "When a qualified prospect is ready, guide them toward scheduling without relying on your intake team to manually coordinate every consultation.",
     features: [
       "Calendar integration",
       "Qualification-based booking",
@@ -64,13 +64,13 @@ const services = [
   },
   {
     icon: Database,
-    title: "CRM & Lead Management",
+    title: "CRM & Inquiry Management",
     description:
-      "Keep conversations, qualification details, statuses, and lead activity organized inside the systems your HVAC team already uses.",
+      "Keep conversations, intake details, statuses, and inquiry activity organized inside the systems your firm already uses.",
     features: [
       "CRM synchronization",
-      "Lead status updates",
-      "Structured lead information",
+      "Inquiry status updates",
+      "Structured inquiry information",
     ],
   },
 ];
@@ -107,14 +107,14 @@ export function ServicesSection() {
               id="services-heading"
               className="mt-4 text-balance text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl"
             >
-              Everything between a new HVAC lead and a booked appointment.
+              Everything between a new PI inquiry and a qualified consultation.
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
-              ZYVORIS connects fast response, missed-call recovery,
-              qualification, follow-up, booking, and lead management into one
-              workflow built around how your HVAC company already handles
-              leads.
+              ZYVORIS connects fast response, missed-call recovery, intake,
+              qualification, follow-up, consultation booking, and inquiry
+              management into one workflow built around how your PI firm
+              already handles inquiries.
             </p>
           </div>
 
@@ -208,9 +208,10 @@ export function ServicesSection() {
           {/* Bottom positioning statement */}
           <div className="mx-auto mt-12 max-w-2xl text-center sm:mt-14">
             <p className="text-sm leading-7 text-white/35">
-              Digital leads and missed calls flow into the same system:
-              respond quickly, qualify the opportunity, follow up, move ready
-              prospects toward booking, and keep your team informed.
+              Digital inquiries and missed calls flow into the same system:
+              respond quickly, support intake, qualify using your firm&apos;s
+              criteria, follow up, move qualified prospects toward
+              consultation, and keep your team informed.
             </p>
           </div>
         </div>

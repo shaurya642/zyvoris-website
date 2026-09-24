@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import {
   ArrowRight,
   Facebook,
@@ -52,14 +53,15 @@ export function Footer() {
             </Link>
 
             <p className="max-w-sm text-sm leading-7 text-white/55">
-              ZYVORIS builds Lead Response &amp; Conversion Systems for HVAC
-              companies that help them respond faster, qualify leads, follow
-              up consistently, recover missed-call opportunities, and move
-              more prospects toward booked appointments.
+              ZYVORIS builds PI Lead Conversion Systems for US personal injury
+              law firms that help them respond faster, support intake, qualify
+              inquiries, follow up consistently, recover missed-call
+              opportunities, and move qualified prospects toward
+              consultations.
             </p>
 
             <p className="text-xs font-medium uppercase tracking-[0.22em] text-white/30">
-              Respond faster. Qualify better. Book more.
+              Respond faster. Qualify better. Book more consultations.
             </p>
           </div>
 
@@ -225,7 +227,7 @@ export function Footer() {
           </p>
 
           <p className="text-xs text-white/25">
-            From new lead to booked appointment.
+            From new inquiry to qualified consultation.
           </p>
         </div>
       </div>

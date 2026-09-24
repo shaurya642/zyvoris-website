@@ -20,25 +20,32 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://zyvoris.com"),
 
   title: {
-    default: "Zyvoris | Lead Response & Conversion System for HVAC Companies",
+    default: "Zyvoris | PI Lead Conversion System for Personal Injury Law Firms",
     template: "%s | Zyvoris",
   },
 
   description:
-    "ZYVORIS helps HVAC companies turn more of the leads they already generate into booked jobs through fast response, lead qualification, follow-up, missed-call recovery, appointment booking, CRM updates, and team notifications.",
+    "ZYVORIS helps US personal injury law firms turn more of the inbound opportunities they already generate into qualified consultations through fast response, intake support, qualification, follow-up, missed-call recovery, consultation booking, CRM updates, and team notifications.",
 
   keywords: [
-    "HVAC Lead Response",
-    "HVAC Lead Conversion",
-    "HVAC Lead Qualification",
-    "HVAC Lead Follow Up",
-    "HVAC Appointment Booking",
-    "HVAC CRM Automation",
-    "HVAC Missed Call Recovery",
-    "HVAC Missed Call Response",
-    "HVAC Speed to Lead",
-    "HVAC Lead Management",
-    "HVAC Automation",
+    "Personal Injury Lead Conversion",
+    "PI Lead Conversion",
+    "Personal Injury Lead Response",
+    "PI Lead Response",
+    "Personal Injury Lead Qualification",
+    "PI Lead Qualification",
+    "Personal Injury Lead Follow Up",
+    "PI Lead Follow Up",
+    "Personal Injury Intake Automation",
+    "PI Intake Automation",
+    "Personal Injury Consultation Booking",
+    "PI Consultation Booking",
+    "Personal Injury Missed Call Recovery",
+    "PI Missed Call Recovery",
+    "Personal Injury Lead Management",
+    "PI Lead Management",
+    "Personal Injury CRM Automation",
+    "PI CRM Automation",
     "Lead Response & Conversion System",
   ],
 
@@ -63,9 +70,10 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Zyvoris | Lead Response & Conversion System for HVAC Companies",
+    title:
+      "Zyvoris | PI Lead Conversion System for Personal Injury Law Firms",
     description:
-      "Turn more of the leads your HVAC company already generates into booked jobs. Respond faster, qualify leads, recover missed calls, follow up consistently, and move ready prospects toward appointments.",
+      "Turn more of the inbound opportunities your personal injury law firm already generates into qualified consultations. Respond faster, support intake, qualify inquiries, recover missed calls, follow up consistently, and move qualified prospects toward consultations.",
     url: "https://zyvoris.com",
     siteName: "Zyvoris",
     locale: "en_US",
@@ -74,9 +82,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Zyvoris | Lead Response & Conversion System for HVAC Companies",
+    title:
+      "Zyvoris | PI Lead Conversion System for Personal Injury Law Firms",
     description:
-      "Help your HVAC company turn more existing leads into booked jobs through fast response, qualification, follow-up, missed-call recovery, booking, and lead management.",
+      "Help your personal injury law firm turn more existing inbound opportunities into qualified consultations through fast response, intake support, qualification, follow-up, missed-call recovery, booking, and lead management.",
   },
 
   icons: {

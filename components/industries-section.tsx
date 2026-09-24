@@ -2,10 +2,10 @@
 
 import {
   ArrowRight,
-  Wrench,
+  ClipboardCheck,
   PhoneMissed,
   CalendarCheck,
-  ClipboardCheck,
+  MessageSquareText,
   RefreshCw,
   Bell,
 } from "lucide-react";
@@ -15,10 +15,10 @@ const CALENDLY_URL = "https://calendly.com/shaurya-zyvoris/30min";
 
 const workflowAreas = [
   {
-    icon: Wrench,
-    title: "HVAC Lead Response",
+    icon: MessageSquareText,
+    title: "PI Inquiry Response",
     description:
-      "Respond quickly to new HVAC inquiries while your team is busy with installations, service calls, or other jobs.",
+      "Respond quickly to new personal injury inquiries while your attorneys and intake team are focused on existing matters.",
     featured: true,
   },
   {
@@ -30,27 +30,27 @@ const workflowAreas = [
   },
   {
     icon: ClipboardCheck,
-    title: "Lead Qualification",
+    title: "Intake & Qualification",
     description:
-      "Evaluate incoming leads using the information they provide and gather additional details when needed.",
+      "Gather relevant information and apply your firm's defined intake and qualification criteria to incoming prospects.",
   },
   {
     icon: RefreshCw,
     title: "Consistent Follow-Up",
     description:
-      "Keep following up with qualified prospects who have not booked so promising opportunities do not go cold.",
+      "Keep following up with qualified prospects who have not booked so promising consultation opportunities do not go cold.",
   },
   {
     icon: CalendarCheck,
-    title: "Appointment Booking",
+    title: "Consultation Booking",
     description:
-      "Move ready prospects toward scheduling when the conversation reaches the right point.",
+      "Move qualified prospects toward scheduling when the conversation reaches the right point.",
   },
   {
     icon: Bell,
     title: "CRM & Team Notification",
     description:
-      "Keep lead details and status organized while making important lead events visible to your HVAC team.",
+      "Keep inquiry details and status organized while making important events visible to your intake team and attorneys.",
   },
 ];
 
@@ -74,24 +74,24 @@ export function IndustriesSection() {
           {/* Section heading */}
           <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
             <span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary sm:text-sm">
-              Built for HVAC
+              Built for Personal Injury Firms
             </span>
 
             <h2
               id="industries-heading"
               className="mt-4 text-balance text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl"
             >
-              Built around how HVAC companies actually handle leads.
+              Built around how PI firms actually handle inquiries.
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
-              ZYVORIS connects digital leads and missed calls to a consistent
-              response, qualification, follow-up, booking, and team
-              notification workflow.
+              ZYVORIS connects digital inquiries and missed calls to a
+              consistent response, intake, qualification, follow-up,
+              consultation booking, and team notification workflow.
             </p>
           </div>
 
-          {/* HVAC workflow areas */}
+          {/* PI workflow areas */}
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {workflowAreas.map((area) => {
               const Icon = area.icon;
@@ -180,13 +180,14 @@ export function IndustriesSection() {
                 </div>
 
                 <h3 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                  Your HVAC lead workflow, connected end to end.
+                  Your PI inquiry workflow, connected end to end.
                 </h3>
 
                 <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/55 sm:leading-8">
-                  From the moment a digital lead arrives or a call is missed,
-                  ZYVORIS connects response, qualification, follow-up, booking,
-                  CRM updates, and team notifications into one system.
+                  From the moment a digital inquiry arrives or a call is
+                  missed, ZYVORIS connects response, intake, qualification,
+                  follow-up, consultation booking, CRM updates, and team
+                  notifications into one system.
                 </p>
 
                 <a

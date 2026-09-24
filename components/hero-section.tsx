@@ -19,23 +19,23 @@ const CALENDLY_URL = "https://calendly.com/shaurya-zyvoris/30min";
 const workflowSteps = [
   {
     icon: Zap,
-    label: "New Lead",
-    description: "A new inquiry enters your business",
+    label: "New Inquiry",
+    description: "A new PI inquiry enters your firm",
   },
   {
     icon: PhoneMissed,
     label: "Missed Call Recovered",
-    description: "Missed-call opportunities get a response",
+    description: "Missed-call opportunities receive a response",
   },
   {
     icon: Zap,
     label: "Fast Response",
-    description: "Leads receive an immediate response",
+    description: "Prospective clients receive an immediate response",
   },
   {
     icon: CheckCircle2,
-    label: "Lead Qualified",
-    description: "Intent, fit, and readiness are identified",
+    label: "Intake & Qualification",
+    description: "Information is gathered using your firm's criteria",
   },
   {
     icon: RefreshCw,
@@ -44,18 +44,18 @@ const workflowSteps = [
   },
   {
     icon: Calendar,
-    label: "Appointment Booked",
-    description: "Ready prospects are guided toward booking",
+    label: "Consultation Booked",
+    description: "Qualified prospects are guided toward consultation booking",
   },
   {
     icon: Database,
     label: "CRM Updated",
-    description: "Lead details and status stay organized",
+    description: "Inquiry details and status stay organized",
   },
   {
     icon: Bell,
     label: "Team Notified",
-    description: "Important lead events reach your team",
+    description: "Important inquiry events reach your team",
   },
 ];
 
@@ -130,7 +130,7 @@ export function HeroSection() {
               </span>
 
               <span className="text-xs font-semibold uppercase tracking-[0.14em] text-primary sm:text-sm">
-                HVAC Lead Conversion System
+                Personal Injury Lead Conversion System
               </span>
             </div>
 
@@ -138,17 +138,19 @@ export function HeroSection() {
               id="hero-heading"
               className="max-w-[760px] text-5xl font-extrabold leading-[0.96] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl xl:text-[78px]"
             >
-              Turn More HVAC
+              Turn More PI
               <br />
-              Leads Into
+              Inquiries Into
               <br />
-              <span className="text-primary">Booked Jobs.</span>
+              <span className="text-primary">Qualified Consultations.</span>
             </h1>
 
             <p className="mx-auto mt-8 max-w-[630px] text-lg leading-8 text-white/60 sm:text-xl lg:mx-0">
-              ZYVORIS helps HVAC companies respond faster, qualify new leads,
-              follow up consistently, recover missed-call opportunities, and
-              move ready prospects toward booked appointments.
+              ZYVORIS helps US personal injury law firms respond faster to
+              inbound inquiries, recover missed-call opportunities, support
+              intake, qualify prospects using your firm&apos;s criteria,
+              follow up consistently, and move qualified prospects toward
+              consultations.
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
@@ -194,7 +196,8 @@ export function HeroSection() {
             </div>
 
             <p className="mt-6 text-sm text-white/40">
-              Built around the way your HVAC company already handles leads.
+              Built around the way your firm already handles intake and
+              inquiries.
             </p>
           </div>
 
@@ -205,7 +208,7 @@ export function HeroSection() {
             />
 
             <ol
-              aria-label="ZYVORIS lead response and conversion workflow"
+              aria-label="ZYVORIS PI lead response and conversion workflow"
               className="relative space-y-3"
             >
               {workflowSteps.map((step, index) => {

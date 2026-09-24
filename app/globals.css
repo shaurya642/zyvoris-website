@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -142,6 +143,7 @@
    * Keep global transitions limited to actual visual properties.
    * Avoid globally transitioning expensive or layout-related properties.
    */
+
   button,
   a,
   input,
@@ -173,6 +175,7 @@
    * Desktop gets the premium glass effect.
    * Mobile override below removes the expensive blur.
    */
+
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -226,6 +229,7 @@
   content: "";
 
   position: absolute;
+
   left: 50%;
   top: 50%;
   z-index: -1;
@@ -314,6 +318,7 @@
    * glass appearance without forcing the browser to continuously
    * blur everything behind each card.
    */
+
   .glass {
     background: rgba(255, 255, 255, 0.035);
 
@@ -325,6 +330,7 @@
    * Remove cursor-following card glow on mobile.
    * Touch devices do not benefit from this interaction.
    */
+
   .card-glow::after {
     display: none;
   }
@@ -332,6 +338,7 @@
   /*
    * Reduce the large ambient section glow.
    */
+
   .section-glow::before {
     width: 520px;
     height: 220px;
@@ -347,6 +354,7 @@
    * Decorative continuous animations are slowed down.
    * They remain available without competing heavily with scrolling.
    */
+
   .animate-gradient {
     animation-duration: 14s;
   }
@@ -363,6 +371,7 @@
    * Prevent unnecessary transition work on elements that
    * are commonly interacted with during scrolling.
    */
+
   button,
   a {
     transition-duration: 0.2s;
@@ -377,6 +386,7 @@
   /*
    * Touch devices should never run hover-only visual effects.
    */
+
   .card-glow::after {
     display: none !important;
   }
@@ -385,6 +395,7 @@
    * Disable decorative hover transforms on touch devices.
    * This avoids sticky hover states on mobile browsers.
    */
+
   .group:hover {
     transform: none;
   }
@@ -443,6 +454,7 @@ html {
  * Prevent accidental horizontal overflow from large decorative
  * elements, long text, or animated components.
  */
+
 @media (max-width: 767px) {
   body,
   main,
@@ -457,6 +469,7 @@ html {
     overflow-wrap: break-word;
   }
 }
+
 /* =========================================================
    LIGHTWEIGHT SECTION REVEAL
    ========================================================= */

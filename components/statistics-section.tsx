@@ -14,25 +14,25 @@ const outcomes = [
     icon: Zap,
     title: "Respond Faster",
     description:
-      "New HVAC inquiries can receive an immediate response instead of waiting for someone on your team to become available.",
+      "New personal injury inquiries can receive a timely response instead of waiting for someone on your intake team to become available.",
   },
   {
     icon: PhoneMissed,
     title: "Recover Missed Opportunities",
     description:
-      "Missed calls do not have to become lost leads. The workflow can help reconnect with callers and keep the opportunity moving.",
+      "Missed calls do not have to become lost opportunities. The workflow can help reconnect with callers and keep the conversation moving.",
   },
   {
     icon: Clock,
     title: "Follow Up Consistently",
     description:
-      "Automated follow-up keeps conversations moving so promising HVAC opportunities do not get forgotten after the first interaction.",
+      "Automated follow-up keeps conversations moving so promising PI inquiries do not get forgotten after the first interaction.",
   },
   {
     icon: Calendar,
-    title: "Move Leads Toward Booking",
+    title: "Move Prospects Toward Consultation",
     description:
-      "When a prospect is ready for the next step, the workflow can guide them toward scheduling without unnecessary back-and-forth.",
+      "When a qualified prospect is ready for the next step, the workflow can guide them toward scheduling without unnecessary back-and-forth.",
   },
 ];
 
@@ -63,13 +63,14 @@ export function StatisticsSection() {
               id="why-zyvoris-heading"
               className="mt-4 text-balance text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl"
             >
-              Stop letting good HVAC leads go cold.
+              Stop letting good PI inquiries go cold.
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
-              ZYVORIS helps HVAC companies respond to new inquiries, recover
-              missed-call opportunities, qualify leads, follow up consistently,
-              and move ready prospects toward booked appointments.
+              ZYVORIS helps personal injury law firms respond to new
+              inquiries, recover missed-call opportunities, support intake,
+              qualify prospects using firm-defined criteria, follow up
+              consistently, and move qualified prospects toward consultations.
             </p>
           </div>
 
@@ -143,9 +144,9 @@ export function StatisticsSection() {
           {/* Bottom statement */}
           <div className="mx-auto mt-12 max-w-2xl text-center sm:mt-14">
             <p className="text-sm leading-7 text-white/35">
-              The goal is simple: help your HVAC company capture more of the
-              opportunities it is already generating and turn more of them
-              into real conversations and booked appointments.
+              The goal is simple: help your personal injury firm capture more
+              of the opportunities it is already generating and move more of
+              them toward qualified consultations.
             </p>
           </div>
         </div>

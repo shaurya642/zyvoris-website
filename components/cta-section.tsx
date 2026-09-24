@@ -4,7 +4,8 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionReveal } from "@/components/section-reveal";
 
-const CALENDLY_URL = "https://calendly.com/shaurya-zyvoris/30min";
+const CALENDLY_URL =
+  "https://calendly.com/shaurya-zyvoris/30min";
 
 const EASE = "cubic-bezier(0.22,1,0.36,1)";
 
@@ -53,15 +54,16 @@ export function CTASection() {
                 id="cta-heading"
                 className="mx-auto max-w-3xl text-4xl font-bold tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl"
               >
-                Turn more of your HVAC leads into booked jobs.
+                Turn more PI inquiries into qualified consultations.
               </h2>
 
               {/* Supporting copy */}
               <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
-                See how ZYVORIS can help your HVAC company respond faster,
-                qualify new leads, recover missed calls, follow up with
-                unbooked prospects, and move ready opportunities toward
-                booked appointments.
+                See how ZYVORIS can help your personal injury law firm respond
+                faster, recover missed-call opportunities, support intake,
+                qualify inquiries using your firm&apos;s criteria, follow up
+                consistently, and move qualified prospects toward
+                consultations.
               </p>
 
               {/* CTA */}

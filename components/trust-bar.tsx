@@ -8,8 +8,8 @@ import {
 const trustItems = [
   {
     icon: Clock,
-    title: "Faster Lead Response",
-    description: "New inquiries get an immediate first response",
+    title: "Faster Inquiry Response",
+    description: "New PI inquiries get an immediate first response",
   },
   {
     icon: PhoneMissed,
@@ -23,7 +23,7 @@ const trustItems = [
   },
   {
     icon: CalendarCheck,
-    title: "More Booking Opportunities",
+    title: "More Consultation Opportunities",
     description: "Guide qualified prospects toward the next step",
   },
 ];
@@ -33,7 +33,7 @@ const EASE = "cubic-bezier(0.22,1,0.36,1)";
 export function TrustBar() {
   return (
     <section
-      aria-label="ZYVORIS benefits for HVAC companies"
+      aria-label="ZYVORIS benefits for US personal injury law firms"
       className="relative border-y border-white/[0.08] bg-white/[0.015] backdrop-blur-xl max-sm:backdrop-blur-none"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

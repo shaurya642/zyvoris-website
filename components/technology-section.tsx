@@ -39,12 +39,12 @@ export function TechnologySection() {
               id="technology-heading"
               className="mt-4 text-balance text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl"
             >
-              Works with the tools your HVAC company already uses.
+              Works with the tools your PI firm already uses.
             </h2>
 
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
               ZYVORIS can connect communication, AI, automation, scheduling,
-              lead sources, and CRM tools into the lead workflow you already
+              lead sources, and CRM tools into the intake workflow you already
               have — without requiring you to replace everything.
             </p>
           </div>
@@ -70,8 +70,8 @@ export function TechnologySection() {
           {/* Supporting note */}
           <p className="mx-auto mt-8 max-w-xl text-center text-xs leading-6 text-white/30">
             Available integrations depend on your existing lead sources,
-            communication channels, CRM, scheduling setup, and the workflow
-            your HVAC company needs.
+            communication channels, CRM, scheduling setup, and the intake
+            workflow your PI firm needs.
           </p>
         </div>
       </section>

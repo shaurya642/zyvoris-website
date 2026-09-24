@@ -14,23 +14,23 @@ const steps = [
   {
     number: "01",
     icon: PhoneIncoming,
-    title: "Lead Comes In",
+    title: "Inquiry Comes In",
     description:
-      "A new digital lead arrives or a call comes in. ZYVORIS captures the opportunity so it can enter the right response workflow.",
+      "A new digital inquiry arrives or a prospective client calls. ZYVORIS captures the opportunity so it can enter the right response workflow.",
   },
   {
     number: "02",
     icon: Zap,
     title: "Fast Response",
     description:
-      "New leads receive a timely response, while missed calls can trigger an automatic text-back to restart the conversation.",
+      "New inquiries receive a timely response, while missed calls can trigger an automatic text-back to reconnect and restart the conversation.",
   },
   {
     number: "03",
     icon: ClipboardCheck,
-    title: "Lead Qualified",
+    title: "Intake & Qualification",
     description:
-      "The system evaluates the information already provided and gathers additional details through conversation when needed.",
+      "The system gathers relevant information and applies your firm's defined intake and qualification criteria through the conversation.",
   },
   {
     number: "04",
@@ -42,9 +42,9 @@ const steps = [
   {
     number: "05",
     icon: CalendarCheck,
-    title: "Appointment Booked",
+    title: "Consultation Booked",
     description:
-      "Ready prospects are guided toward booking, while lead details and important status updates can reach your CRM and team.",
+      "Qualified prospects are guided toward consultation booking, while relevant inquiry details and status updates can reach your CRM and team.",
   },
 ];
 
@@ -73,13 +73,13 @@ export function ProcessSection() {
               id="process-heading"
               className="mt-4 text-balance text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl"
             >
-              From new lead to booked appointment.
+              From new inquiry to qualified consultation.
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
-              ZYVORIS connects digital leads and missed calls to fast response,
-              qualification, follow-up, booking, and lead visibility in one
-              connected workflow.
+              ZYVORIS connects digital inquiries and missed calls to fast
+              response, intake, qualification, follow-up, consultation
+              booking, and lead visibility in one connected workflow.
             </p>
           </div>
 
@@ -149,36 +149,54 @@ export function ProcessSection() {
 
           <div className="mx-auto mt-12 max-w-3xl text-center sm:mt-14">
             <div className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm font-medium text-white/40">
-              <span className="text-white/60">Digital Leads</span>
+              <span className="text-white/60">Digital Inquiries</span>
+
               <span aria-hidden="true" className="text-primary/50">
                 →
               </span>
+
               <span className="text-white/60">Missed Calls</span>
+
               <span aria-hidden="true" className="text-primary/50">
                 →
               </span>
-              <span className="text-white/60">Response</span>
+
+              <span className="text-white/60">Fast Response</span>
+
               <span aria-hidden="true" className="text-primary/50">
                 →
               </span>
+
+              <span className="text-white/60">Intake</span>
+
+              <span aria-hidden="true" className="text-primary/50">
+                →
+              </span>
+
               <span className="text-white/60">Qualification</span>
+
               <span aria-hidden="true" className="text-primary/50">
                 →
               </span>
+
               <span className="text-white/60">Follow-Up</span>
+
               <span aria-hidden="true" className="text-primary/50">
                 →
               </span>
-              <span className="text-white/60">Booking</span>
+
+              <span className="text-white/60">Consultation</span>
+
               <span aria-hidden="true" className="text-primary/50">
                 →
               </span>
+
               <span className="text-white/60">CRM / Team</span>
             </div>
 
             <p className="mt-4 text-sm leading-7 text-white/30">
-              One connected system designed around the way your HVAC company
-              already handles leads.
+              One connected system designed around the way your personal injury
+              firm already handles inquiries and intake.
             </p>
           </div>
         </div>
