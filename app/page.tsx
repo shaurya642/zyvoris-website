@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/hero-section";
 import { TechnologySection } from "@/components/technology-section";
 import { TrustBar } from "@/components/trust-bar";
 import { StatisticsSection } from "@/components/statistics-section";
+import { TestimonialsSection } from "@/components/testimonials-section";
 import { ServicesSection } from "@/components/services-section";
 import { ProcessSection } from "@/components/process-section";
 import { IndustriesSection } from "@/components/industries-section";
@@ -24,6 +25,8 @@ export default function Home() {
       <TrustBar />
 
       <StatisticsSection />
+
+      <TestimonialsSection />
 
       <ServicesSection />
 

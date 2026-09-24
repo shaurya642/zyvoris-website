@@ -10,6 +10,7 @@ const CALENDLY_URL = "https://calendly.com/shaurya-zyvoris/30min";
 const navigation = [
   { name: "Services", href: "#services" },
   { name: "Process", href: "#process" },
+  { name: "Testimonials", href: "#testimonials" },
   { name: "Industries", href: "#industries" },
   { name: "Contact", href: "#contact" },
 ];
